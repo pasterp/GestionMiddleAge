@@ -1,4 +1,4 @@
-Quentin : MCD
+Quentin : Avec Pascal, moteur du jeu (temps & interaction)
 Tiona : Gestion utilisateur (connexion / inscription)
 Geoffrey : Différentes section (ex : présentation batiment ? (+ upgrade + production actuelle))
-Pascal : gestion du temps 
+Pascal : gestion du temps (cf quentin)
