@@ -12,3 +12,14 @@ I - Structure BDD
 - Ressource
 - Unite
 - Technologie
+
+
+
+Développement
+- [ ] Gestion des utilisateurs
+- [ ] Gestion du temps in-game
+- [x] Base de données
+- [ ] Gestion des batiments
+- [ ] Gestion de la production de ressources
+- [ ] Gestion des technologies
+- [ ] Gestion des combats
