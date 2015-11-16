@@ -32,6 +32,9 @@ else {
 	else if (isset($_POST['page']) && $_POST['page'] == 'postInscription') {
 		# ou l'on envoie le formulaire
 	}
+	else if (isset($_GET['page']) && $_GET['page'] == 'logout') {
+		# Deconnexion
+	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'profile') {
 		# profile d'un joueur (maybe pas tout afficher de son état ?) possibilité d'attaque ?
 	}
@@ -62,11 +65,6 @@ else {
 	else if (isset($_GET['page']) && $_GET['page'] == 'attaque') {
 		# Etat d'une attaque
 	}
-
-
-
-
-
 	else {
 		$titre = "Je pense que vous êtes perdu...";
 		include_once('vue/page404.php');
