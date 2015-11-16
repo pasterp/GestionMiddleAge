@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charse="utf-8" />
-    <title>Bienvenue !</title>
-</head>
-<body>
+<?php include_once('vue/header.php'); ?>
     <p>Déjà plus de <?php echo $nbJoueurs; ?> inscrits !</p>
-</body>
+
+<?php include_once('vue/footer.php'); ?>
