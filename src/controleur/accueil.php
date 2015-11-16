@@ -1,9 +1,8 @@
 <?php
 
-include_once('src/modele/get_statistiques.php');
+include_once('./modele/get_statistiques.php');
 
 $nbJoueurs = get_nbJoueurs();
 
-include_once('src/vue/accueil.php');
+include_once('./vue/accueil.php');
 
-?>

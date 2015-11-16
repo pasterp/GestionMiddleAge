@@ -10,5 +10,3 @@ function get_nbJoueurs(){
     $req = $req->fetch()[0];
     return $req;
 }
-
->
