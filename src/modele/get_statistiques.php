@@ -9,3 +9,13 @@ function get_nbJoueurs(){
     $req = $req->fetch()[0];
     return $req;
 }
+
+function get_dernierInscrit(){
+	global $bdd;
+
+	$req = "SELECT pseudoJoueur FROM JOUEUR ORDER BY idJoueur DESC LIMIT 0,1";
+	$req = $bdd->query($req);
+	$req = $req->fetch()[0];
+
+	return $req;
+}

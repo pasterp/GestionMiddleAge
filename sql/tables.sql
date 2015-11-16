@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS JOUEUR(
   dateNaissanceJoueur date, 
   motdepasseJoueur VARCHAR(50),
   mailJoueur VARCHAR(150),
+  image VARCHAR(300),
   date_inscripion datetime,
   date_last_connection datetime,
   PRIMARY KEY (idJoueur)
@@ -55,7 +56,9 @@ CREATE TABLE IF NOT EXISTS RESSOURCE(
 CREATE TABLE IF NOT EXISTS UNITE(
   idUnite INT(50) NOT NULL AUTO_INCREMENT,
   nomUnite VARCHAR(50),
+  image VARCHAR(300),
   descriptionUnite VARCHAR(300),
+  image VARCHAR(300),
   PRIMARY KEY (idUnite)
 )ENGINE = InnoDB;
 
@@ -74,7 +77,9 @@ CREATE TABLE IF NOT EXISTS BATIMENT(
   idBatiment INT(50) NOT NULL AUTO_INCREMENT,
   nomBatiment VARCHAR(50),
   descriptionBatiment VARCHAR(500),
+  niveauBatiment int(5),
   idType INT(50),
+  image VARCHAR(300),
   CONSTRAINT FOREIGN KEY (idType) REFERENCES TYPE(idType) ON DELETE CASCADE,
   PRIMARY KEY (idBatiment)
 )ENGINE = InnoDB;
@@ -85,6 +90,7 @@ CREATE TABLE IF NOT EXISTS TECHNOLOGIE(
   idTech INT(50) NOT NULL,
   nomTech VARCHAR(50),
   descriptionTech VARCHAR(500),
+  image VARCHAR(300),
   PRIMARY KEY (idTech)
 )ENGINE = InnoDB;
 

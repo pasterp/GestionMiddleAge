@@ -2,7 +2,7 @@
 include_once('modele/configuration.php');
 include_once('modele/connexion_sql.php');
 
-if ($bdd == false) {
+if ($bdd == false || isMaintenance()) {
 	include_once('vue/maintenance.php');
 }
 else {
