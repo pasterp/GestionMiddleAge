@@ -25,6 +25,12 @@ DROP TABLE IF EXISTS TECHNOLOGIE;
 CREATE TABLE IF NOT EXISTS JOUEUR(
   idJoueur INT(50) NOT NULL AUTO_INCREMENT,
   pseudoJoueur VARCHAR(50),
+  sexeJoueur ENUM('male', 'female'), 
+  dateNaissanceJoueur date, 
+  motdepasseJoueur VARCHAR(50),
+  mailJoueur VARCHAR(150),
+  date_inscripion datetime,
+  date_last_connection datetime,
   PRIMARY KEY (idJoueur)
 )ENGINE = InnoDB;
 
@@ -40,6 +46,7 @@ CREATE TABLE IF NOT EXISTS MAPCASE(
 CREATE TABLE IF NOT EXISTS RESSOURCE(
   idRessource INT(50) NOT NULL AUTO_INCREMENT,
   nomRessource VARCHAR(50),
+  descriptionRessource VARCHAR(300),
   PRIMARY KEY (idRessource)
 )ENGINE = InnoDB;
 
@@ -65,6 +72,7 @@ CREATE TABLE IF NOT EXISTS TYPE(
 CREATE TABLE IF NOT EXISTS BATIMENT(
   idBatiment INT(50) NOT NULL AUTO_INCREMENT,
   nomBatiment VARCHAR(50),
+  descriptionBatiment VARCHAR(500),
   idType INT(50),
   CONSTRAINT FOREIGN KEY (idType) REFERENCES TYPE(idType) ON DELETE CASCADE,
   PRIMARY KEY (idBatiment)
@@ -75,6 +83,7 @@ CREATE TABLE IF NOT EXISTS BATIMENT(
 CREATE TABLE IF NOT EXISTS TECHNOLOGIE(
   idTech INT(50) NOT NULL,
   nomTech VARCHAR(50),
+  descriptionTech VARCHAR(500),
   PRIMARY KEY (idTech)
 )ENGINE = InnoDB;
 
