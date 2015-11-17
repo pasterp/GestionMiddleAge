@@ -1,18 +1,22 @@
 <?php include_once('vue/header.php'); ?>
 
-	<div>
+<div class="row">
+	<div class=""></div>
+	<div class="">
 		<form id="login" method="post" action="#">
-			<div>
-				<label for="pseudoJoueur">Pseudo</label>
-				<input type="text" name="pseudoJoueur" id="pseudoJoueur"/>
-				<label for="mdpJoueur">Mot de Passe</label>
-				<input type="password" name="mdpJoueur" id="mdpJoueur" />
-			</div>
-			
-			<div>
-				<input type="submit" name="login" value="Connexion"/>
-				<input type="reset" name="annuler" value="Annuler"/>
-			</div>
+		<fieldset><legend>Connexion</legend>
+				<div class="row">
+					<label for="pseudoJoueur">Pseudo</label>
+					<input type="text" name="pseudoJoueur" id="pseudoJoueur"/>
+					<label for="mdpJoueur">Mot de Passe</label>
+					<input type="password" name="mdpJoueur" id="mdpJoueur" />
+					<label for="resterCo">
+				      	<input type="checkbox" id="resterCo" value="resterCo" /> Rester connecté</label>
+					<input class="" type="submit" name="login" value="Connexion"/>
+				</div>
+			</fieldset>
 		</form>
 	</div>
+	<div class=""></div>
+</div>
 <?php include_once('vue/footer.php'); ?>
