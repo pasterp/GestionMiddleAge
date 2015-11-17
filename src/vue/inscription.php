@@ -3,13 +3,6 @@
 
 
 <form id="inscription" method="post" action="#">
-
-		<div>
-			<label for="nomJoueur">Votre Nom: </label>
-			<input type="text" name="nomJoueur" id="nomJoueur"/>
-			<label for="prenomJoueur">Votre Prénom: </label>
-			<input type="text" name="prenomJoueur" id="prenomJoueur"/>
-		</div>
 		<div>
 			<label for="pseudoJoueur"> Votre Pseudo: </label>
 			<input type="text" name="pseudoJoueur" id="pseudoJoueur"/>
@@ -17,6 +10,11 @@
 			<input type="password" name="mdpJoueur" id="mdpJoueur" />
 			<label for="mdp2Joueur">Confirmation </label>
 			<input type="password" name="mdp2Joueur" id="mdp2Joueur"/>
+		</div>
+
+		<div>
+			<label for="mailJoueur">Mail Joueur:</label>
+			<input type="email" name="mailJoueur" id="mailJoueur"/>
 		</div>
 
 		<div>
@@ -44,10 +42,6 @@
 </select>
 		</div>
 
-		<div>
-			<label for="mailJoueur">Mail Joueur:</label>
-			<input type="text" name="mailJoueur" id="mailJoueur"/>
-		</div>
 
 		<div>
 			<input type="submit" name="inscription" value="S'inscrire"/>
