@@ -16,6 +16,7 @@ else {
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'login') {
 		# Page de co
+		include_once('controleur/login.php');
 	}
 	else if (isset($_POST['page']) && $_POST['page'] == 'postLogin') {
 		# ou envoie le login
@@ -25,6 +26,7 @@ else {
 	} 
 	else if (isset($_GET['page']) && $_GET['page'] == 'inscription') {
 		# page d'inscription
+		include_once('controleur/inscription.php');
 	} 
 	else if (isset($_GET['page']) && $_GET['page'] == 'postInscription') {
 		# on on affiche les messages d'erreur ou les messages de ok
