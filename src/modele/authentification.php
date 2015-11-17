@@ -13,7 +13,7 @@ function deconnexion(){
 	session_start();
 }
 
-function connexion(){
+function connexion($user, $mdp){
 	//need to be tiona (be tune hahaha)
 	return false;
 }
