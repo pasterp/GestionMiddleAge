@@ -19,8 +19,8 @@
 
 		<div>
 			<label for="sexeJoueur">Sexe: </label>
-			<input type="checkbox" name="homme" value="homme"><label>homme</label>
-			<input type="checkbox" name="femme" value="femme"><label>femme</label>
+			<input type="radio" name="sexe" value="homme"><label>homme</label>
+			<input type="radio" name="sexe" value="femme"><label>femme</label>
 			<label>Date de naissance: </label>
 			<input type="text" id="jour" maxlength="2" size="2" value="jour"/>
 			<select name="mois">
