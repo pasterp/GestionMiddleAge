@@ -19,28 +19,28 @@
 	</div>
 
 	<div>
-		<label for="sexeJoueur">Sexe: </label>
-		<input type="radio" name="sexe" value="homme"><label>homme</label>
-		<input type="radio" name="sexe" value="femme"><label>femme</label>
-		<label>Date de naissance: </label>
-		<input type="text" id="jour" maxlength="2" size="2" value="jour"/>
-		<select name="mois">
-			<optgroup>
-				<option value="1" >Janvier</option>
-				<option value="2" >Février</option>
-				<option value="3" >Mars</option>
-				<option value="4" >Avril</option>
-				<option value="5" >Mai</option>
-				<option value="6" >Juin</option>
-				<option value="7" >Juillet</option>
-				<option value="8" >Aout</option>
-				<option value="9" >Septembre</option>
-				<option value="10" >Octobre</option>
-				<option value="11" >Novembre</option>
-				<option value="12" >Décembre</option>
-			</optgroup>
-		</select>
-		<input type="text" name="annee" maxlength="4" size="4" value="annee"/>	
+		<label for="sexe">Sexe: </label>
+		<input id="sexe" type="radio" name="sexe" value="homme"><label>homme</label>
+		<input id="sexe" type="radio" name="sexe" value="femme"><label>femme</label>
+		<div>
+			<label>Date de naissance: </label>
+			<input type="text" id="jour" maxlength="2" size="2" value="jour"/>
+			<select name="mois">
+					<option value="1" >Janvier</option>
+					<option value="2" >Février</option>
+					<option value="3" >Mars</option>
+					<option value="4" >Avril</option>
+					<option value="5" >Mai</option>
+					<option value="6" >Juin</option>
+					<option value="7" >Juillet</option>
+					<option value="8" >Aout</option>
+					<option value="9" >Septembre</option>
+					<option value="10" >Octobre</option>
+					<option value="11" >Novembre</option>
+					<option value="12" >Décembre</option>
+			</select>
+			<input type="text" name="annee" maxlength="4" size="4" value="annee"/>
+		</div>	
 	</div>
 
 	<div>
