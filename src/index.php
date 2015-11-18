@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 session_start();
 include_once('modele/configuration.php');
 include_once('modele/connexion_sql.php');
+include_once('modele/authentification.php');
 
 if ($bdd == false || isMaintenance()) {
 	$warn = "Le site est actuellement indisponible, veuillez nous en escusez...";
@@ -41,6 +42,7 @@ else {
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'logout') {
 		# Deconnexion
+		include_once('controleur/logout.php');
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'profile') {
 		# profile d'un joueur (maybe pas tout afficher de son état ?) possibilité d'attaque ?

@@ -9,6 +9,38 @@
 </head>
 <body>
 
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="index.php"><?php echo $titreSite; ?>e</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+	
+  <section class="top-bar-section">
+    <ul class="right">
+<?php if (estAuthentifier()): ?>
+      <li class="has-dropdown">
+        <a href="#">Mon compte</a>
+        <ul class="dropdown">
+          <li><a href="#">Mes informations</a></li>
+          <li><a href="index.php?page=logout">Déconnexion</a></li>
+        </ul>
+      </li>
+<?php else: ?>
+	<li><a href="index.php?page=inscription">Inscription</a></li>
+	<li><a href="index.php?page=login">Connexion</a></li>
+<?php endif ?>
+    </ul>
+
+
+    <ul class="left">
+      <li><a href="#">#1</a></li>
+    </ul>
+  </section>
+</nav>
+
+
 <div class="row">
 	<div class="large-8 small-12 small-centered large-centered columns ">
 		<?php if (isset($alert)) { ?>

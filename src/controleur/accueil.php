@@ -1,7 +1,6 @@
 <?php
 
 include_once('./modele/get_statistiques.php');
-include_once('./modele/authentification.php');
 
 $titre = "Accueil";
 $nbJoueurs = get_nbJoueurs();

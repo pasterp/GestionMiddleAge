@@ -1,8 +1,5 @@
 <?php 
 
-
-	include_once './modele/authentification.php';
-
 	if (estAuthentifier()) {
 		retourEnTerresConnues();
 	}
@@ -21,8 +18,8 @@
 			//Connexion échouée
 			$_SESSION['fpseudoJoueur']=$user;
 		}
-
-	}else{
-		//Connexion échouée
-		echo "pas ok";
 	}
+
+	$warn = "Identifiants invalides !";
+
+	include_once './vue/login.php';
