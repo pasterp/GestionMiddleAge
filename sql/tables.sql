@@ -58,7 +58,6 @@ CREATE TABLE IF NOT EXISTS UNITE(
   nomUnite VARCHAR(50),
   image VARCHAR(300),
   descriptionUnite VARCHAR(300),
-  image VARCHAR(300),
   PRIMARY KEY (idUnite)
 )ENGINE = InnoDB;
 
