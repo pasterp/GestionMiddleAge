@@ -1,14 +1,17 @@
 <?php
+error_reporting(E_ALL);
+session_start();
 include_once('modele/configuration.php');
 include_once('modele/connexion_sql.php');
 
 if ($bdd == false || isMaintenance()) {
+	$warn = "Le site est actuellement indisponible, veuillez nous en escusez...";
 	include_once('vue/maintenance.php');
 }
 else {
-	if( !isset($_GET['page']) ||
+	if( !isset($_POST['page']) && (!isset($_GET['page']) ||
 		$_GET['page'] == "index" || 
-		$_GET['page'] == 'accueil'){
+		$_GET['page'] == 'accueil')){
 	    
 	    include_once('controleur/accueil.php');
 
@@ -20,6 +23,7 @@ else {
 	}
 	else if (isset($_POST['page']) && $_POST['page'] == 'postLogin') {
 		# ou envoie le login
+		include_once 'controleur/login_post.php';
 	}	
 	else if (isset($_GET['page']) && $_GET['page'] == 'postLogin') {
 		# on on affiche les messages d'erreur ou les messages de ok
@@ -33,6 +37,7 @@ else {
 	}
 	else if (isset($_POST['page']) && $_POST['page'] == 'postInscription') {
 		# ou l'on envoie le formulaire
+		echo "inscription";
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'logout') {
 		# Deconnexion
@@ -68,6 +73,7 @@ else {
 		# Etat d'une attaque
 	}
 	else {
+		$info = "La page recherchée n'a pas pu être trouvée...";
 		$titre = "Je pense que vous êtes perdu...";
 		include_once('vue/page404.php');
 	}

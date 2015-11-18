@@ -14,6 +14,7 @@ function deconnexion(){
 }
 
 function connexion($user, $mdp){
+	echo $user;
 	//need to be tiona (be tune hahaha)
 	return false;
 }

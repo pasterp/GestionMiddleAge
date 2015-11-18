@@ -1,7 +1,7 @@
 <?php include_once('vue/header.php'); ?>
 
 <form id="inscription" method="post" action="index.php">
-	<input type="hidden" name="page" value="inscripttion" />
+	<input type="hidden" name="page" value="postInscription" />
 	<fieldset><legend>Informations publiques</legend>
 	<div class="row">
 		<div class="large-8 medium-8 small-12 columns">

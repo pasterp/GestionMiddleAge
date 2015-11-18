@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charse="utf-8" />
-    <title>Maintenance en cours</title>
-</head>
-<body>
+<?php include_once('vue/header.php'); ?>
     <p>Le site est actuellement indisponible, merci de votre compréhension.</p>
-</body>
+    <?php
+	phpinfo();
+	?>
+<?php include_once('vue/footer.php'); ?>
