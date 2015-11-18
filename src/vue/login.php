@@ -7,7 +7,7 @@
 		<fieldset><legend>Connexion</legend>
 			<div class="row">
 				<label for="pseudoJoueur">Pseudo</label>
-				<input type="text" name="pseudoJoueur" id="pseudoJoueur" placeholder="Pseudonyme" />
+				<input type="text" name="pseudoJoueur" id="pseudoJoueur" placeholder="Pseudonyme" value="<?php if(isset($_SESSION['fpseudoJoueur'])){ echo $_SESSION['fpseudoJoueur']; } ?>" />
 				<label for="mdpJoueur">Mot de Passe</label>
 				<input type="password" name="mdpJoueur" id="mdpJoueur" placeholder="Mot de passe" />
 				<label for="resterCo" class=""><input type="checkbox" id="resterCo" value="resterCo" /> Rester connecté</label>

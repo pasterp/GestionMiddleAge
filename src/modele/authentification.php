@@ -14,9 +14,20 @@ function deconnexion(){
 }
 
 function connexion($user, $mdp){
-	echo $user;
-	//need to be tiona (be tune hahaha)
-	return false;
+	global $bdd;
+
+	// $mdp = md5($mdp, $salt);
+	$req = $bdd->prepare("SELECT idJoueur FROM JOUEUR WHERE pseudoJoueur=:user AND motdepasseJoueur=:pass");
+	$req->execute(array( 'user' => $user,
+						 'pass' => $mdp));
+	$nb = $req->fetchColumn();
+	
+	if ($nb > 0) {
+		return true;
+	}else{
+		return false;
+	}
+
 }
 
 function retourEnTerresConnues(){

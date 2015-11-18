@@ -3,18 +3,23 @@
 
 	include_once './modele/authentification.php';
 
+	if (estAuthentifier()) {
+		retourEnTerresConnues();
+	}
+
 	if(isset($_POST['pseudoJoueur']) && isset($_POST['mdpJoueur'])){
-		
+		$_SESSION['fpseudoJoueur']="";
 		$user = $_POST['pseudoJoueur'];
 		$mdp  = $_POST['mdpJoueur'];
 
 		if( connexion($user, $mdp) )
 		{
 			//Connexion réussie
-			echo "ok";
+			$_SESSION['connexion'] = md5($user, $salt);
+			retourEnTerresConnues();
 		}else{
 			//Connexion échouée
-			echo "pas ok";
+			$_SESSION['fpseudoJoueur']=$user;
 		}
 
 	}else{
