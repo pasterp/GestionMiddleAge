@@ -12,7 +12,7 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="index.php"><?php echo $titreSite; ?>e</a></h1>
+      <h1><a href="index.php"><?php echo $titreSite; ?></a></h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
@@ -39,7 +39,6 @@
     </ul>
   </section>
 </nav>
-
 
 <div class="row">
 	<div class="large-8 small-12 small-centered large-centered columns ">
