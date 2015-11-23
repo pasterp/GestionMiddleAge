@@ -15,7 +15,17 @@ class Joueur
 
 	function __construct($array=Array())
 	{
-		$this->hydrate($array);
+		$ctp = func_num_args();
+    	$args = func_get_args();
+
+    	if ($ctp == 1) {
+    		if (is_array($args[0])) {
+    			$this->hydrate($array);
+    		}else{
+    			$this->hydrate($this->Joueur($args[0]));
+    		}
+    	}
+		
 	}
 
 	public function hydrate(array $donnees)
@@ -34,7 +44,7 @@ class Joueur
 		global $bdd;
 		$req = $bdd->query($req);
 		$req = $req->fetch();
-		return new Joueur($req);
+		return $req;
 	}
 
 	public static function Joueurs(){

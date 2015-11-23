@@ -8,7 +8,7 @@ function estAuthentifier(){
 	if (isset($_SESSION['connexion']) or isset($_COOKIE['connexion']) && validateCookie($_COOKIE['connexion'])) {
 
 		global $currentJoueur;
-		$currentJoueur = Joueur::Joueur($_SESSION['idJoueur']);
+		$currentJoueur = new Joueur($_SESSION['idJoueur']);
 
 		return true;
 	}else{
