@@ -13,7 +13,7 @@ class Joueur
 
 	private $case;
 
-	function __construct($array=Array())
+	function __construct()
 	{
 		$ctp = func_num_args();
     	$args = func_get_args();
@@ -48,7 +48,7 @@ class Joueur
 	}
 
 	public static function Joueurs(){
-		//Methode statique retournant toutes les joueurs existants
+		//Methode statique retournant tous les joueurs existants
 		$req = 'SELECT idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image FROM JOUEUR ORDER BY date_inscripion';
 		global $bdd;
 		$req = $bdd->query($req);
