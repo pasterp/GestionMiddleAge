@@ -9,7 +9,7 @@ function estAuthentifier(){
 
 		global $currentJoueur;
 		$currentJoueur = new Joueur($_SESSION['idJoueur']);
-
+		$currentJoueur->save();
 		return true;
 	}else{
 		return false;
@@ -22,14 +22,14 @@ function deconnexion(){
 	session_start();
 }
 
-function connexion($user, $mdp){
+function connexion($user, $mdp, $raw=false){
 	global $bdd;
 
-
+	if($raw==false){$mdp = generatePassword($mdp);}
 
 	$req = $bdd->prepare("SELECT idJoueur FROM JOUEUR WHERE pseudoJoueur=:user AND motdepasseJoueur=:pass");
 	$req->execute(array( 'user' => $user,
-						 'pass' => generatePassword($mdp)));
+						 'pass' => $mdp));
 	$id = $req->fetchAll()[0][0];
 	$_SESSION['idJoueur'] = $id;
 

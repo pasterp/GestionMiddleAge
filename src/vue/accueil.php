@@ -5,7 +5,7 @@
 
     <h4>Ressources disponibles en jeu:</h4><ul>
 	<?php foreach ($t as $key => $value) {
-		echo "<li><span>".$value[1]." : </span> ".$value[2]."</li>";
+		echo "<li>".$value[1]." : <span style='font-style:italic;'>".$value[2]."</span></li>";
 	}  ?>
     </ul>
 
