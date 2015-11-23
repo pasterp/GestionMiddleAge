@@ -2,7 +2,7 @@
 
 
 include_once('./modele/connexion_sql.php');
-include_once('./modele/case.php');
+//include_once('./modele/case.php');
 
 /**
 * Classe gérant la représentation d'un utilisateur (idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, motdepasseJoueur, mailJoueur, image, date_inscripion, date_last_connection)
