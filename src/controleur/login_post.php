@@ -1,5 +1,8 @@
 <?php 
 
+
+include_once('modele/authentification.php');
+
 	if (estAuthentifier()) {
 		retourEnTerresConnues();
 	}
@@ -12,8 +15,15 @@
 		if( connexion($user, $mdp) )
 		{
 			//Connexion réussie
-			$_SESSION['connexion'] = md5($user, $salt);
+			$cook = generateCookie($user,$mdp);
+
+			$_SESSION['connexion'] = $cook;
+			
+			if (isset($_POST['resterCo'])) {
+				setcookie('connexion', $cook, time()+3600);
+			}
 			retourEnTerresConnues();
+
 		}else{
 			//Connexion échouée
 			$_SESSION['fpseudoJoueur']=$user;

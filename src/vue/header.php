@@ -21,7 +21,7 @@
     <ul class="right">
 <?php if (estAuthentifier()): ?>
       <li class="has-dropdown">
-        <a href="#">Mon compte</a>
+        <a href="#">Mon compte( <?php echo $currentJoueur->getPseudo(); ?> )</a>
         <ul class="dropdown">
           <li><a href="#">Mes informations</a></li>
           <li><a href="index.php?page=logout">Déconnexion</a></li>
