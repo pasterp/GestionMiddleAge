@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS RESSOURCE(
   idRessource INT(50) NOT NULL AUTO_INCREMENT,
   nomRessource VARCHAR(50),
   descriptionRessource VARCHAR(300),
+  image VARCHAR(300),
   PRIMARY KEY (idRessource)
 )ENGINE = InnoDB;
 

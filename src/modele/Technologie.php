@@ -71,5 +71,4 @@
 			$this->image = $p;
 		}
 	}
-	$truc = new Technologie(1);
 ?>
