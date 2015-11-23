@@ -93,4 +93,6 @@ class Joueur
 		$this->image = $v;
 	}
 
+	//TODO : password gen ???
+
 }
