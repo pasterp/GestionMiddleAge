@@ -24,14 +24,14 @@ class Joueur
 	  {
 	    $method = 'set'.ucfirst($key);
 	    if (method_exists($this, $method)){
-	      $this->$method($value);
+	      	$this->$method($value);
 	    }
 	  }
 	}
 
 	public static function Joueurs(){
 		//Methode statique retournant toutes les joueurs existants
-		$req = 'SELECT idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image FROM JOUEUR';
+		$req = 'SELECT idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image FROM JOUEUR ORDER BY date_inscripion';
 		global $bdd;
 		$req = $bdd->query($req);
 		$req = $req->fetchAll();
@@ -44,13 +44,30 @@ class Joueur
 		return $liste;
 	}
 
-	public function getPseudo(){
-		return ucfirst($this->pseudoJoueur);
+	public function save(){
+		global $bdd;
+		if ($this->idJoueur == NULL) {
+			//On a pas d'id donc c'est une nouvelle entrée !
+			$req = $bdd->prepare('INSERT INTO JOUEUR(pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, date_inscripion, date_last_connection) VALUES(?, ?, ?, ?, ?, NOW(), NOW()) ');
+			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image));
+		}else{
+			//Sinon c'est que l'on update
+			$req = $bdd->prepare('UPDATE JOUEUR SET pseudoJoueur=?, sexeJoueur=?, dateNaissanceJoueur=?, mailJoueur=?, image=?, date_last_connection=NOW() where idJoueur=?');
+			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->idJoueur));
+		}
 	}
 
-	public function getId(){
-		return $this->id;
-	}
+	public function getPseudo(){return ucfirst($this->pseudoJoueur);}
+
+	public function getMailJoueur(){return $this->mailJoueur;}
+
+	public function getImage(){return $this->image;}
+
+	public function getSexe(){return $this->sexeJoueur;}
+
+	public function getDateNaissanceJoueur(){return $this->dateNaissanceJoueur;}
+
+	public function getId(){return $this->id;}
 
 	public function setPseudoJoueur($p){
 		$this->pseudoJoueur = strtolower($p);

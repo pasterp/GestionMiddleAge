@@ -14,6 +14,8 @@ function get_nbJoueurs(){
 }
 
 function get_dernierInscrit(){
-    $j = end(Joueur::Joueurs());
+    $j = Joueur::Joueurs();
+    $j = end($j);
+    $j->save();
     return $j->getPseudo();
 }
