@@ -26,9 +26,10 @@ function connexion($user, $mdp){
 	global $bdd;
 
 
+
 	$req = $bdd->prepare("SELECT idJoueur FROM JOUEUR WHERE pseudoJoueur=:user AND motdepasseJoueur=:pass");
 	$req->execute(array( 'user' => $user,
-						 'pass' => $mdp));
+						 'pass' => generatePassword($mdp)));
 	$id = $req->fetchAll()[0][0];
 	$_SESSION['idJoueur'] = $id;
 
@@ -40,7 +41,8 @@ function connexion($user, $mdp){
 }
 
 function generatePassword($mdp){
-	return md5($mdp, $salt);
+	global $salt;
+	return crypt($mdp, $salt);
 }
 
 function retourEnTerresConnues(){
@@ -58,5 +60,6 @@ function validateCookie($cookie){
 }
 
 function generateCookie($user, $mdp){
-	return base64_encode($user.' '.md5($mdp, $salt));
+	global $salt;
+	return base64_encode($user.' '.crypt($mdp, $salt));
 }

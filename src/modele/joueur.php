@@ -20,7 +20,7 @@ class Joueur
 
     	if ($ctp == 1) {
     		if (is_array($args[0])) {
-    			$this->hydrate($array);
+    			$this->hydrate($args[0]);
     		}else{
     			$this->hydrate($this->Joueur($args[0]));
     		}
