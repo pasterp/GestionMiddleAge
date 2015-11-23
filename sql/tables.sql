@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS BATIMENT(
 #____________________________
 
 CREATE TABLE IF NOT EXISTS TECHNOLOGIE(
-  idTech INT(50) NOT NULL,
+  idTech INT(50) NOT NULL AUTO_INCREMENT,
   nomTech VARCHAR(50),
   descriptionTech VARCHAR(500),
   image VARCHAR(300),
