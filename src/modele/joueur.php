@@ -25,7 +25,7 @@ class Joueur
 
 	public static function Joueurs(){
 			//Methode statique retournant toutes les resosurces existantes
-			$req = 'SELECT (idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image) FROM JOUEUR';
+			$req = 'SELECT idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image FROM JOUEUR';
 			global $bdd;
 			$req = $bdd->query($req);
 			$req = $req->fetchAll();
