@@ -68,11 +68,35 @@ class Joueur
 			//On a pas d'id donc c'est une nouvelle entrée !
 			$req = $bdd->prepare('INSERT INTO JOUEUR(pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, date_inscripion, date_last_connection) VALUES(?, ?, ?, ?, ?, NOW(), NOW()) ');
 			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image));
+			$this->idJoueur=$bdd->lastInsertId();
+			$this->genRessourcesLink();
 		}else{
 			//Sinon c'est que l'on update
 			$req = $bdd->prepare('UPDATE JOUEUR SET pseudoJoueur=?, sexeJoueur=?, dateNaissanceJoueur=?, mailJoueur=?, image=?, date_last_connection=NOW() where idJoueur=?');
 			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->idJoueur));
 		}
+	}
+
+	public function genRessourcesLink(){
+		global $bdd;
+		foreach (Ressources::Ressources() as $row) {
+			$req = "INSERT INTO POSSEDE_RESSOURCE(idJoueur, idRessource, quantite) VALUES ('".$this->idJoueur."', '".$row['idRessource']."', 500)";
+			$req = $bdd->exec($req);
+		}
+	}
+
+	public function getRessourcesLink(){
+		$etatsRessources = array();
+		global $bdd;
+		$r = Ressource::Ressources();
+		foreach ($r as $row) {
+			$req = "SELECT quantite FROM POSSEDE_RESSOURCE WHERE idJoueur='".$this->idJoueur."' AND idRessource='".$row['idRessource']."'";
+			$req = $bdd->query($req);
+			$req = $req->fetch();
+
+			$etatsRessources[$row['idRessource']] = $req['quantite'];
+		}
+		return $etatsRessources;
 	}
 
 	public function getPseudo(){return ucfirst($this->pseudoJoueur);}
