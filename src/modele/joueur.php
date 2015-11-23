@@ -9,18 +9,24 @@ include_once('./modele/connexion_sql.php');
 */
 class Joueur
 {
-	private $id, $pseudo, $sexe, $anniv, $mail, $image;
+	private $idJoueur, $pseudoJoueur, $sexeJoueur, $dateNaissanceJoueur, $mailJoueur, $image;
 
 	private $case;
 
-	function __construct($_id="", $_pseudo="", $_sexe="", $_anniv="", $_mail="", $_image="")
+	function __construct($array=Array())
 	{
-		$this->id=$_id;
-		$this->pseudo=$_pseudo;
-		$this->sexe=$_sexe;
-		$this->anniv=$_anniv;
-		$this->mail=$_mail;
-		$this->image=$_image;
+		$this->hydrate($array);
+	}
+
+	public function hydrate(array $donnees)
+	{
+	  foreach ($donnees as $key => $value)
+	  {
+	    $method = 'set'.ucfirst($key);
+	    if (method_exists($this, $method)){
+	      $this->$method($value);
+	    }
+	  }
 	}
 
 	public static function Joueurs(){
@@ -32,14 +38,42 @@ class Joueur
 
 		$liste = array();
 		foreach ($req as $row) {
-			$j = new Joueur($row['pseudoJoueur'], $row[1], $row[2], $row[3], $row[4], $row[5]);
+			$j = new Joueur($row);
 			array_push($liste, $j);
 		}
 		return $liste;
 	}
 
 	public function getPseudo(){
-		return $this->pseudo;
+		return ucfirst($this->pseudoJoueur);
+	}
+
+	public function getId(){
+		return $this->id;
+	}
+
+	public function setPseudoJoueur($p){
+		$this->pseudoJoueur = strtolower($p);
+	}
+
+	public function setMailJoueur($m){
+		$this->mailJoueur = strtolower($m);
+	}
+
+	private function setIdJoueur($i){
+		$this->idJoueur = (int) $i;
+	}
+
+	public function setSexeJoueur($v){
+		$this->sexeJoueur = $v;
+	} 
+
+	public function setDateNaissanceJoueur($v){
+		$this->dateNaissanceJoueur = $v;
+	}
+
+	public function setImage($v){
+		$this->image = $v;
 	}
 
 }

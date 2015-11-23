@@ -1,5 +1,8 @@
 <?php
 
+include_once('./modele/joueur.php');	
+
+
 function get_nbJoueurs(){
     //Exemple pour récupérer le nombre de joueurs inscrits #test
     global $bdd;
@@ -11,11 +14,6 @@ function get_nbJoueurs(){
 }
 
 function get_dernierInscrit(){
-	global $bdd;
-
-	$req = "SELECT pseudoJoueur FROM JOUEUR ORDER BY idJoueur DESC LIMIT 0,1";
-	$req = $bdd->query($req);
-	$req = $req->fetch()[0];
-
-	return $req;
+    $j = end(Joueur::Joueurs());
+    return $j->getPseudo();
 }
