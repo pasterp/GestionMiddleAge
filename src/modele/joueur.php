@@ -15,25 +15,31 @@ class Joueur
 
 	function __construct($_id="", $_pseudo="", $_sexe="", $_anniv="", $_mail="", $_image="")
 	{
-		$id=$_id;
-		$pseudo=$_pseudo;
-		$sexe=$_sexe;
-		$anniv=$_anniv;
-		$mail=$_mail;
-		$image=$_image;
+		$this->id=$_id;
+		$this->pseudo=$_pseudo;
+		$this->sexe=$_sexe;
+		$this->anniv=$_anniv;
+		$this->mail=$_mail;
+		$this->image=$_image;
 	}
 
 	public static function Joueurs(){
-			//Methode statique retournant toutes les resosurces existantes
-			$req = 'SELECT idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image FROM JOUEUR';
-			global $bdd;
-			$req = $bdd->query($req);
-			$req = $req->fetchAll();
+		//Methode statique retournant toutes les joueurs existants
+		$req = 'SELECT idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image FROM JOUEUR';
+		global $bdd;
+		$req = $bdd->query($req);
+		$req = $req->fetchAll();
 
-			$liste = array();
-			foreach ($req as $row) {
-				$j = new Joueur($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
-			}
+		$liste = array();
+		foreach ($req as $row) {
+			$j = new Joueur($row['pseudoJoueur'], $row[1], $row[2], $row[3], $row[4], $row[5]);
+			array_push($liste, $j);
 		}
+		return $liste;
+	}
+
+	public function getPseudo(){
+		return $this->pseudo;
+	}
 
 }
