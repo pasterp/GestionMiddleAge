@@ -16,7 +16,7 @@ I - Structure BDD
 
 
 Développement
-- [ ] Gestion des utilisateurs
+- [x] Gestion des utilisateurs
 - [ ] Gestion du temps in-game
 - [x] Base de données
 - [ ] Gestion des batiments
