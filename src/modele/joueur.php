@@ -66,9 +66,11 @@ class Joueur
 	public function save(){
 		global $bdd;
 		if ($this->idJoueur == NULL) {
+			$donnees = array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->motdepasseJoueur);
 			//On a pas d'id donc c'est une nouvelle entrée !
-			$req = $bdd->prepare('INSERT INTO JOUEUR(pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, date_inscripion, date_last_connection, motdepasseJoueur) VALUES(?, ?, ?, ?, ?, NOW(), NOW()),? ');
-			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->motdepasseJoueur));
+			print_r($donnees);
+			$req = $bdd->prepare('INSERT INTO JOUEUR(pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, date_inscripion, date_last_connection, motdepasseJoueur) VALUES(?, ?, ?, ?, ?, NOW(), NOW(), ? ) ');
+			$req->execute($donnees);
 			$this->idJoueur=$bdd->lastInsertId();
 			$this->genRessourcesLink();
 		}else{

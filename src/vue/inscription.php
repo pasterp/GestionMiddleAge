@@ -53,8 +53,8 @@
 		          <label for="" class="right inline">Sexe</label>
 		        </div>
 		        <div class="large-6 medium-6 small-12 columns left">
-		        	<input id="homme" type="radio" name="sexe" value="homme" checked="checked"><label for="homme" class="inline">homme</label>
-					<input id="femme" type="radio" name="sexe" value="femme"><label for="femme" class="inline">femme</label>
+		        	<input id="homme" type="radio" name="sexe" value="male" checked="checked"><label for="homme" class="inline">homme</label>
+					<input id="femme" type="radio" name="sexe" value="female"><label for="femme" class="inline">femme</label>
 		        </div>
 		      </div>
 		    </div>

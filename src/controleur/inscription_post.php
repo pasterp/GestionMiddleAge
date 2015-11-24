@@ -68,7 +68,7 @@ if ($estok) {
 
 
 	$Joueur->save();
-	retourEnTerresConnues();
+	//retourEnTerresConnues();
 }else{
 	$alert = $log;
 	include_once('./vue/inscription.php');
