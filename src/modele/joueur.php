@@ -2,6 +2,7 @@
 
 
 include_once('./modele/connexion_sql.php');
+include_once ('./modele/ressource.php');
 //include_once('./modele/case.php');
 
 /**
@@ -9,7 +10,7 @@ include_once('./modele/connexion_sql.php');
 */
 class Joueur
 {
-	private $idJoueur, $pseudoJoueur, $sexeJoueur, $dateNaissanceJoueur, $mailJoueur, $image;
+	private $idJoueur, $pseudoJoueur, $sexeJoueur, $dateNaissanceJoueur, $mailJoueur, $image, $motdepasseJoueur;
 
 	private $case;
 
@@ -40,7 +41,7 @@ class Joueur
 	}
 
 	public static function Joueur($id){
-		$req = "SELECT idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image FROM JOUEUR WHERE idJoueur='".$id."'";
+		$req = "SELECT idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, motdepasseJoueur FROM JOUEUR WHERE idJoueur='".$id."'";
 		global $bdd;
 		$req = $bdd->query($req);
 		$req = $req->fetch();
@@ -49,7 +50,7 @@ class Joueur
 
 	public static function Joueurs(){
 		//Methode statique retournant tous les joueurs existants
-		$req = 'SELECT idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image FROM JOUEUR ORDER BY date_inscripion';
+		$req = 'SELECT idJoueur, pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, motdepasseJoueur FROM JOUEUR ORDER BY date_inscripion';
 		global $bdd;
 		$req = $bdd->query($req);
 		$req = $req->fetchAll();
@@ -66,20 +67,20 @@ class Joueur
 		global $bdd;
 		if ($this->idJoueur == NULL) {
 			//On a pas d'id donc c'est une nouvelle entrée !
-			$req = $bdd->prepare('INSERT INTO JOUEUR(pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, date_inscripion, date_last_connection) VALUES(?, ?, ?, ?, ?, NOW(), NOW()) ');
-			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image));
+			$req = $bdd->prepare('INSERT INTO JOUEUR(pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, date_inscripion, date_last_connection, motdepasseJoueur) VALUES(?, ?, ?, ?, ?, NOW(), NOW()),? ');
+			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->motdepasseJoueur));
 			$this->idJoueur=$bdd->lastInsertId();
 			$this->genRessourcesLink();
 		}else{
 			//Sinon c'est que l'on update
-			$req = $bdd->prepare('UPDATE JOUEUR SET pseudoJoueur=?, sexeJoueur=?, dateNaissanceJoueur=?, mailJoueur=?, image=?, date_last_connection=NOW() where idJoueur=?');
-			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->idJoueur));
+			$req = $bdd->prepare('UPDATE JOUEUR SET pseudoJoueur=?, sexeJoueur=?, dateNaissanceJoueur=?, mailJoueur=?, image=?, date_last_connection=NOW(), motdepasseJoueur=? where idJoueur=?');
+			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->idJoueur,$this->motdepasseJoueur));
 		}
 	}
 
 	public function genRessourcesLink(){
 		global $bdd;
-		foreach (Ressources::Ressources() as $row) {
+		foreach (Ressource::Ressources() as $row) {
 			$req = "INSERT INTO POSSEDE_RESSOURCE(idJoueur, idRessource, quantite) VALUES ('".$this->idJoueur."', '".$row['idRessource']."', 500)";
 			$req = $bdd->exec($req);
 		}
@@ -130,11 +131,11 @@ class Joueur
 	public function setDateNaissanceJoueur($v){
 		$this->dateNaissanceJoueur = $v;
 	}
-
+	public function setMotdepasseJoueur($mdp){
+		$this->motdepasseJoueur = $mdp;
+	}
 	public function setImage($v){
 		$this->image = $v;
 	}
-
-	//TODO : password gen ???
 
 }
