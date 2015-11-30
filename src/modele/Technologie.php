@@ -35,39 +35,38 @@
 			global $bdd;
 			$req = $bdd->query($req);
 			$req = $req->fetch();
-			print_r($req);
 			return $req;
 		}
 
-		private function getIdTech(){
+		public function getIdTech(){
 			return $this->idTech;
 		}
 
-		private function getNomTech(){
+		public function getNomTech(){
 			return $this->nomTech;
 		}
 
-		private function getdescriptionTech(){
+		public function getDescriptionTech(){
 			return $this->descriptionTech;
 		}
 
-		private function getimage(){
+		public function getimage(){
 			return $this->image;
 		}
 
-		private function setIdTech($i){
+		public function setIdTech($i){
 			$this->idJoueur = (int) $i;
 		}
 
-		private function setNomTech($n){
+		public function setNomTech($n){
 			$this->nomTech = strtolower($n);
 		}
 
-		private function setdescriptionTech($d){
+		public function setDescriptionTech($d){
 			$this->descriptionTech = strtolower($d);
 		}
 		
-		private function setimage($p){
+		public function setimage($p){
 			$this->image = $p;
 		}
 	}
