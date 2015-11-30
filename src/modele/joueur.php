@@ -70,6 +70,14 @@ class Joueur
 			//On a pas d'id donc c'est une nouvelle entrée !
 			$req = $bdd->prepare('INSERT INTO JOUEUR(pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, date_inscripion, date_last_connection, motdepasseJoueur) VALUES(?, ?, ?, ?, ?, NOW(), NOW(), ? ) ');
 			$req->execute($donnees);
+			$this->idJoueur=$bdd->lastInsertId();
+			$this->genRessourcesLink();
+		}else{
+			//Sinon c'est que l'on update
+			$req = $bdd->prepare('UPDATE JOUEUR SET pseudoJoueur=?, sexeJoueur=?, dateNaissanceJoueur=?, mailJoueur=?, image=?, date_last_connection=NOW(), motdepasseJoueur=? where idJoueur=?');
+			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->idJoueur,$this->motdepasseJoueur));
+		}
+	}
 
 	public function genRessourcesLink(){
 		global $bdd;
