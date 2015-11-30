@@ -1,3 +1,7 @@
+<?php include_once('./modele/ressource.php');
+include_once('./modele/joueur.php');
+include_once('./modele/ressource.php'); ?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="fr">
 <head>
@@ -33,10 +37,45 @@
 <?php endif ?>
     </ul>
 
-
+<?php if (estAuthentifier()): ?>
     <ul class="left">
-      <li><a href="#">#1</a></li>
+    <li><a data-dropdown="dropRes" aria-controls="dropRes" aria-expanded="false">↓Ressources↓</a>
+	<div id="dropRes" data-dropdown-content class="f-dropdown content medium" aria-hidden="true" tabindex="-1">
+	  <div class="row"><?php $ressources = Ressource::Ressources(); 
+	  $quantites = $currentJoueur->getRessourcesLink(); ?>
+	  		<div class="columns large-6">
+	  			<img src="<?php echo  $ressources[1][3]; ?>" style="width:35px; height:35px;"  title="<?php echo  $ressources[1][1]; ?>" />
+	  			<span style=""> <?php echo $quantites[$ressources[1]['idRessource']]; ?> </span>
+	  		</div>
+	  		<div class="columns large-6">
+	  			<img src="<?php echo  $ressources[2][3]; ?>" style="width:35px; height:35px;"  title="<?php echo  $ressources[2][1]; ?>" />
+	  			<span style=""> <?php echo $quantites[$ressources[2]['idRessource']]; ?></span>
+	  		</div>
+	  	</div><div class="row">
+	  		<div class="columns large-6">
+	  			<img src="<?php echo  $ressources[3][3]; ?>" style="width:35px; height:35px;"  title="<?php echo  $ressources[3][1]; ?>" />
+	  			<span style=""> <?php echo $quantites[$ressources[3]['idRessource']]; ?></span>
+	  		</div>
+	  		<div class="columns large-6">
+	  			<img src="<?php echo  $ressources[4][3]; ?>" style="width:35px; height:35px;"  title="<?php echo  $ressources[4][1]; ?>" />
+	  			<span style=""> <?php echo $quantites[$ressources[4]['idRessource']]; ?></span>
+	  		</div>
+	  	</div><div class="row">
+	  		<div class="columns large-6">
+	  			<img src="<?php echo  $ressources[0][3]; ?>" style="width:35px; height:35px;"  title="<?php echo  $ressources[0][1]; ?>" />
+	  			<span style=""> <?php echo $quantites[$ressources[0]['idRessource']]; ?></span>
+	  		</div>
+	  		<div class="columns large-6">
+	  			
+	  		</div>
+	  </div>
+	</div></li>
+      <li><a href="#">Batiments</a></li>
+      <li><a href="#">Armée</a></li>
+      <li><a href="#">Recherche</a></li>
+      <li><a href="#">Carte</a></li>
     </ul>
+<?php endif ?>
   </section>
 </nav>
 

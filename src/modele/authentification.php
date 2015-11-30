@@ -63,3 +63,16 @@ function generateCookie($user, $mdp){
 	global $salt;
 	return base64_encode($user.' '.crypt($mdp, $salt));
 }
+
+function pasInscrit($pseudoJoueur,$mail){
+	global $bdd;
+
+	$requete_joueur="SELECT idJoueur FROM JOUEUR WHERE pseudoJoueur='".$_POST['pseudoJoueur']."' or mailJoueur='".$_POST['mailJoueur']."'";
+    $reponse1=$bdd->query($requete_joueur);
+    $liste_joueur=$reponse1->rowCount();
+	    if ($liste_joueur > 0) {
+	    	return false;
+	    }else{
+	    	return true;
+		}
+}

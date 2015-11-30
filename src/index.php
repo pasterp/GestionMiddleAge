@@ -38,7 +38,7 @@ else {
 	}
 	else if (isset($_POST['page']) && $_POST['page'] == 'postInscription') {
 		# ou l'on envoie le formulaire
-		echo "inscription";
+		include_once('controleur/inscription_post.php');
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'logout') {
 		# Deconnexion

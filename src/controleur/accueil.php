@@ -2,9 +2,6 @@
 
 include_once('./modele/get_statistiques.php');
 include_once('./modele/ressource.php');
-include_once('./modele/Unite.php');
-include_once('./modele/Technologie.php');
-include_once('./modele/Batiment.php');
 
 
 $titre = "Accueil";
