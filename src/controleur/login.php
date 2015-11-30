@@ -1,5 +1,8 @@
 <?php
 
 $titre = "Connexion";
-
-include_once('./vue/login.php');
+if (estAuthentifier()) {
+		retourEnTerresConnues();
+}else{
+	include_once('./vue/login.php');
+}

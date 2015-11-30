@@ -5,8 +5,7 @@ include_once('./modele/connexion_sql.php');
 include_once('./modele/joueur.php');
 
 function estAuthentifier(){
-	if (isset($_SESSION['connexion']) or isset($_COOKIE['connexion']) && validateCookie($_COOKIE['connexion'])) {
-
+	if ( (isset($_SESSION['connexion']) or isset($_COOKIE['connexion'])) && validateCookie($_COOKIE['connexion'])) {
 		global $currentJoueur;
 		$currentJoueur = new Joueur($_SESSION['idJoueur']);
 		$currentJoueur->save();
@@ -52,9 +51,14 @@ function retourEnTerresConnues(){
 function validateCookie($cookie){
 	if (true) {
 		$_SESSION['connexion'] = $_COOKIE['connexion']; 
+		$cookie = base64_decode($cookie);
 
-		//set  l'id du joueur actuel !
+		global $bdd;
+		$req = "SELECT idJoueur FROM JOUEUR WHERE pseudoJoueur='".explode(" ", $cookie)[0]."'";
+		$req = $bdd->query($req);
+		$req = $req->fetch()['idJoueur'];
 
+		$_SESSION['idJoueur'] = $req;
 		return true;
 	}
 }

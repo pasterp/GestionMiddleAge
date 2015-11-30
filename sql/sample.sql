@@ -56,10 +56,10 @@ INSERT INTO MAPCASE(CoordX, CoordY) VALUES
 
 INSERT INTO   JOUEUR(pseudoJoueur, motdepasseJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, date_inscripion, date_last_connection ) 
 VALUES 				('pascal', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@phelipot.me', NOW(), NOW()),
-					('test', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@phelipot.me', NOW(), NOW()),
 					('tiona', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@phelipot.me', NOW(), NOW()),
 					('quentin', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@phelipot.me', NOW(), NOW()),
-					('geoffrey', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@phelipot.me', NOW(), NOW());
+					('geoffrey', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@phelipot.me', NOW(), NOW()),
+					('test', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@phelipot.me', NOW(), NOW());
 
 INSERT INTO POSSEDE_RESSOURCE(idJoueur, idRessource, quantite) 
 VALUES 						(1, 1, 500),
