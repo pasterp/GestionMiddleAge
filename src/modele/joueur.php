@@ -90,15 +90,11 @@ class Joueur
 	public function getRessourcesLink(){
 		$etatsRessources = array();
 		global $bdd;
-		$r = Ressource::Ressources();
-		foreach ($r as $row) {
-			$req = "SELECT quantite FROM POSSEDE_RESSOURCE WHERE idJoueur='".$this->idJoueur."' AND idRessource='".$row['idRessource']."'";
-			$req = $bdd->query($req);
-			$req = $req->fetch();
+		$req = "SELECT quantite, idRessource FROM POSSEDE_RESSOURCE WHERE idJoueur='".$this->idJoueur."'";
+		$req = $bdd->query($req);
+		$req = $req->fetchAll();
 
-			$etatsRessources[$row['idRessource']] = $req['quantite'];
-		}
-		return $etatsRessources;
+		return $req;
 	}
 
 	public function getPseudo(){return ucfirst($this->pseudoJoueur);}
@@ -111,7 +107,7 @@ class Joueur
 
 	public function getDateNaissanceJoueur(){return $this->dateNaissanceJoueur;}
 
-	public function getId(){return $this->id;}
+	public function getId(){return $this->idJoueur;}
 
 	public function setPseudoJoueur($p){
 		$this->pseudoJoueur = strtolower($p);
