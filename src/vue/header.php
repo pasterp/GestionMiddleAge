@@ -1,6 +1,5 @@
 <?php include_once('./modele/ressource.php');
-include_once('./modele/joueur.php');
-include_once('./modele/ressource.php'); ?>
+include_once('./modele/joueur.php'); ?>
 
 <!DOCTYPE html>
 <html class="no-js" lang="fr">

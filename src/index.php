@@ -55,6 +55,7 @@ else {
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'liste_unites') {
 		# obvious
+		include_once('controleur/unite.php');
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'liste_technologies') {
 		# liste des technologies acquises puis des technologies à venir (grisé)
