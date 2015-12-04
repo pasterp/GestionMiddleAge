@@ -6,6 +6,7 @@
   	<script src="js/foundation/foundation.topbar.js"></script>
 	<script src="js/foundation/foundation.alert.js"></script>
 	<script src="js/foundation/foundation.magellan.js"></script>
+	<script src="js/foundation/foundation.tab.js"></script>
     <script>
       $(document).foundation();
     </script>
