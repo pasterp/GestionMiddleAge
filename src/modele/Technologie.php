@@ -30,6 +30,22 @@
 		  }
 		}
 
+		public static function Technologies(){
+		//Methode statique retournant toutes les technologies existantes
+
+			$req = 'SELECT * FROM TECHNOLOGIE';
+			global $bdd;
+			$req = $bdd->query($req);
+			return $req->fetchAll();
+
+			$liste = array();
+			foreach ($req as $row) {
+				$b = new Technologie($row);
+				array_push($liste, $b);
+			}
+			return $liste;
+		}
+
 		public static function Technologie($id){
 			$req = "SELECT idTech, nomTech, descriptionTech, image FROM TECHNOLOGIE WHERE idTech='".$id."'";
 			global $bdd;
@@ -37,6 +53,8 @@
 			$req = $req->fetch();
 			return $req;
 		}
+
+		// getters
 
 		public function getIdTech(){
 			return $this->idTech;
@@ -53,6 +71,8 @@
 		public function getimage(){
 			return $this->image;
 		}
+
+		// setters
 
 		public function setIdTech($i){
 			$this->idJoueur = (int) $i;

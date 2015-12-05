@@ -1,6 +1,14 @@
 <?php
 	
+	/*
+	Toute les partie en commentaire sont des ajouts à vérifiés
+	*/
+
 	include_once('./modele/connexion_sql.php');
+	/*------------------------------------
+	include_once ('./modele/ressource.php');
+	include_once('./modele/Technologie.php');
+	------------------------------------*/
 
 	class Unite{
 
@@ -54,6 +62,49 @@
 			return $req;
 		}
 
+		// Liens de tables
+
+		/*-------------------------------------------------
+
+		public function genRessourcesLink(){
+			global $bdd;
+			foreach (Ressource::Ressources() as $row) {
+				$req = "INSERT INTO COUTE_UNITE(idUnite, idRessource, quantite) VALUES ('".$this->idUnite."', '".$row['idRessource']."', 500)";
+				$req = $bdd->exec($req);
+			}
+		}
+
+		public function getRessourcesLink(){
+			$etatsRessources = array();
+			global $bdd;
+			$req = "SELECT quantite, idRessource FROM COUTE_UNITE WHERE idUnite='".$this->idUnite."'";
+			$req = $bdd->query($req);
+			$req = $req->fetchAll();
+
+			return $req;
+		}
+
+		public function genTechLink(){
+			global $bdd;
+			foreach (Technologie::Technologies() as $row) {
+				$req = "INSERT INTO UNITE_DEPEND_DE(idUnite, idTech) VALUES ('".$this->idUnite."', '".$row['idTechnologie']."')";
+				$req = $bdd->exec($req);
+			}
+		}
+
+		public function getTechLink(){
+			$etatsTechnologies = array();
+			global $bdd;
+			$req = "SELECT idTech FROM UNITE_DEPEND_DE WHERE idUnite='".$this->idUnite."'";
+			$req = $bdd->query($req);
+			$req = $req->fetchAll();
+
+			return $req;
+		}
+		----------------------------------------------------*/
+
+		// getters
+
 		public function getIdUnite(){
 			return $this->idUnite;
 		}
@@ -72,6 +123,8 @@
 		public function getDescriptionUnite(){
 			return $this->descriptionUnite;
 		}
+
+		// setters
 
 		public function setIdUnite($i){
 			$this->idUnite = (int) $i;

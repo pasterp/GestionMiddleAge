@@ -36,7 +36,25 @@
 			return $req;
 		}
 
-		public function getIdAttanquant(){
+		public static function Attaques(){
+		//Methode statique retournant toutes les attaques existantes
+
+			$req = 'SELECT * FROM ATTAQUE';
+			global $bdd;
+			$req = $bdd->query($req);
+			return $req->fetchAll();
+
+			$liste = array();
+			foreach ($req as $row) {
+				$b = new Attaque($row);
+				array_push($liste, $b);
+			}
+			return $liste;
+		}
+
+		// getters
+
+		public function getIdAttaquant(){
 			return $this->idAttanquant;
 		}
 

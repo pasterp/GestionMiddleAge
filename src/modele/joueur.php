@@ -1,8 +1,15 @@
 <?php
 
+/*
+Toute les partie en commentaire sont des ajouts à vérifiés
+*/
 
 include_once('./modele/connexion_sql.php');
 include_once ('./modele/ressource.php');
+/*--------------------------------------
+include_once('./modele/Unite.php');
+include_once('./modele/Batiment.php');
+---------------------------------------*/
 //include_once('./modele/case.php');
 
 /**
@@ -79,6 +86,8 @@ class Joueur
 		}
 	}
 
+	// lien de tables
+
 	public function genRessourcesLink(){
 		global $bdd;
 		foreach (Ressource::Ressources() as $row) {
@@ -97,6 +106,46 @@ class Joueur
 		return $req;
 	}
 
+	/*--------------------------------------------------
+	public function genUniteLink(){
+		global $bdd;
+		foreach (Unite::Unites() as $row) {
+			$req = "INSERT INTO POSSEDE_UNITE(idJoueur, idUnite, quantite) VALUES ('".$this->idJoueur."', '".$row['idUnite']."', 0)";
+			$req = $bdd->exec($req);
+		}
+	}
+
+	public function getUniteLink(){
+		$etatsUnites = array();
+		global $bdd;
+		$req = "SELECT quantite, idUnite FROM POSSEDE_UNITE WHERE idJoueur ='".$this->idJoueur."'";
+		$req = $bdd->query($req);
+		$req = $req-> fetchAll();
+
+		return $req;
+	}
+
+	public function genBatimentLink(){
+		global $bdd;
+		foreach (Batiment::Batiments() as $row) {
+			$req = "INSERT INTO POSSEDE_BATIMENT(idJoueur, idBatiment) VALUES ('".$this->idJoueur."', '".$row['idBatiment']."')";
+			$req = $bdd->exec($req);
+		}
+	}
+	
+	public function getBatimentLink(){
+		$etatsUnites = array();
+		global $bdd;
+		$req = "SELECT idBatiment FROM POSSEDE_BATIMENT WHERE idJoueur ='".$this->idJoueur."'";
+		$req = $bdd->query($req);
+		$req = $req-> fetchAll();
+
+		return $req;
+	}
+	---------------------------------------------------------*/
+
+	// getters
+
 	public function getPseudo(){return ucfirst($this->pseudoJoueur);}
 
 	public function getMailJoueur(){return $this->mailJoueur;}
@@ -108,6 +157,8 @@ class Joueur
 	public function getDateNaissanceJoueur(){return $this->dateNaissanceJoueur;}
 
 	public function getId(){return $this->idJoueur;}
+
+	// setters
 
 	public function setPseudoJoueur($p){
 		$this->pseudoJoueur = strtolower($p);
