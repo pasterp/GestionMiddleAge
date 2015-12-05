@@ -28,6 +28,14 @@
 		  }
 		}
 
+		public static Batiment(){
+		//Methode statique retournant tous les batiments existantes
+
+			$req = 'SELECT * FROM BATIMENT';
+			global $bdd;
+			$req = $bdd->query($req);
+			return $req->fetchAll();
+		}
 		public static function Batiment($id){
 			$req = "SELECT idBatiment, nomBatiment, descriptionBatiment, niveauBatiment, idType, image FROM BATIMENT WHERE idBatiment='".$id."'";
 			global $bdd;

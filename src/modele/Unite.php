@@ -31,8 +31,16 @@
 		  }
 		}
 
+		public static function Unites(){
+		//Methode statique retournant toutes les Unites existantes
+		$req = 'SELECT * FROM UNITE';
+		global $bdd;
+		$req = $bdd->query($req);
+		return $req->fetchAll();
+	}
+
 		public static function Unite($id){
-			$req = "SELECT idUnite, nomUnite, image, descriptionUnite FROM UNITE WHERE idUnite='".$id."'";
+			$req = "SELECT idUnite, nomUnite, image, descriptionUnite, puissanceUnite FROM UNITE WHERE idUnite='".$id."'";
 			global $bdd;
 			$req = $bdd->query($req);
 			$req = $req->fetch();
@@ -50,6 +58,9 @@
 		public function getImage(){
 			return $this->image;
 		}
+		public function getPuissance(){
+			return $this->puissanceUnite;
+		}
 
 		public function getDescriptionUnite(){
 			return $this->descriptionUnite;
@@ -59,6 +70,10 @@
 			$this->idUnite = (int) $i;
 		}
 
+		public function setPuissanceUnite($i){
+			$this->puissanceUnite = (int) $i;
+		}
+		
 		public function setNomUnite($n){
 			$this->nomUnite = strtolower($n);
 		}
@@ -71,6 +86,5 @@
 			$this->descriptionUnite = strtolower($d);
 		}
 
-		$unit = new Unite(1);
 	}
 ?>

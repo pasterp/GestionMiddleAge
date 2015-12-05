@@ -1,41 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Test Technologie</title>
-</head>
-<body>
-	<div><h1>Liste des technologies</h1></div>
-	<fieldset>
-		<div>
-			<p>Nom de la technologie 1</p>
-		</div>
-		<div>
-			<p> Description de la technologie 1</p>
-		</div>
-		<div>
-			<p>Cout de la technologie 1</p>
-			<p>300 pierre</p>
-			<p>200 bois</p>
-			<p>100 nouriture</p>
-			<p>800 or</p>
-		</div>
-	</fieldset>
-	<fieldset>
-		<div>
-			<p>Nom de la technologie 2</p>
-		</div>
-		<div>
-			<p> Description de la technologie 2</p>
-		</div>
-		<div>
-			<p>Cout de la technologie 2</p>
-			<p>200 pierre</p>
-			<p>500 bois</p>
-			<p>200 nouriture</p>
-			<p>1300 or</p>
-		</div>
-	</fieldset>
-	
-
-</body>
-</html>
+<?php include_once('vue/header.php'); ?>
+<?php foreach ($uni as $row) {?>
+<div class="row">
+<div class="small-6 large-12 columns">
+<div class="panel">
+<div class="row">
+  <h1><?php echo $row[1];?></h1>
+            <hr>
+          </div>
+          <div class="row">
+            <div class="small-4 columns">
+              <img src=<?php echo $row[2];?> /> </div>
+            <div class="small-8 columns">
+              <h4> Coût de l'unité:></h4>
+              <p> </p>
+              <h5> Description:</h5>
+              <p><?php echo $row[3];?></p>
+              <h5> Puissance:</h5>
+              <p><?php echo $row[4];?></p>
+            </div>
+          </div>
+  </div>
+</div>
+</div>
+<?php}?>
+<?php include_once('vue/footer.php'); ?>
