@@ -1,6 +1,7 @@
 <?php include_once('vue/header.php'); ?>
-<?php foreach ($uni as $row) {?>
-$batimentJoueur = new Batiment($row['idUnite'])?>
+<?php foreach ($uni as $row)
+$idBatiment, $nomBatiment, $descriptionBatiment, $niveauBatiment, $idType, $image;
+$batimentJoueur = new Batiment($row['idBatiment'])?>
 <div class="row">
 <div class="small-6 large-12 columns">
 <div class="panel">
@@ -12,12 +13,10 @@ $batimentJoueur = new Batiment($row['idUnite'])?>
             <div class="small-4 columns">
               <img src="<?php echo $batimentJoueur->getImage();?>" /> </div>
             <div class="small-8 columns">
-              <h4> Coût de l'unité:></h4>
+              <h4> Coût du Batiment: <?php echo $batimentJoueur->getIdType();?> </h4>
               <p>test</p>
               <h5> Description:</h5>
               <p><?php echo $batimentJoueur->getDescriptionBatiment();?></p>
-              <h5> Puissance:</h5>
-              <p><?php echo  $batimentJoueur->batimentJoueur();?></p>
             </div>
           </div>
   </div>

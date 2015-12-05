@@ -37,6 +37,13 @@
 		global $bdd;
 		$req = $bdd->query($req);
 		return $req->fetchAll();
+
+		$liste = array();
+		foreach ($req as $row) {
+			$u = new UNITE($row);
+			array_push($liste, $u);
+		}
+		return $liste;
 	}
 
 		public static function Unite($id){

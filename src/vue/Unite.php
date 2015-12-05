@@ -13,7 +13,7 @@ $uniteJoueur = new Unite($row['idUnite'])?>
             <div class="small-4 columns">
               <img src="<?php echo $uniteJoueur->getImage();?>" /> </div>
             <div class="small-8 columns">
-              <h4> Coût de l'unité:></h4>
+              <h4> Coût de l'unité:</h4>
               <p>test</p>
               <h5> Description:</h5>
               <p><?php echo $uniteJoueur->getDescriptionUnite();?></p>

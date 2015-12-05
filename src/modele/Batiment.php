@@ -35,7 +35,14 @@
 			global $bdd;
 			$req = $bdd->query($req);
 			return $req->fetchAll();
+
+			$liste = array();
+		foreach ($req as $row) {
+			$b = new Batiment($row);
+			array_push($liste, $b);
 		}
+		return $liste;
+	}
 		public static function Batiment($id){
 			$req = "SELECT idBatiment, nomBatiment, descriptionBatiment, niveauBatiment, idType, image FROM BATIMENT WHERE idBatiment='".$id."'";
 			global $bdd;
