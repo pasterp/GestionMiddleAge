@@ -1,6 +1,5 @@
 <?php include_once('vue/header.php'); ?>
 <?php foreach ($uni as $row)
-$idBatiment, $nomBatiment, $descriptionBatiment, $niveauBatiment, $idType, $image;
 $batimentJoueur = new Batiment($row['idBatiment'])?>
 <div class="row">
 <div class="small-6 large-12 columns">

@@ -28,7 +28,7 @@
 		  }
 		}
 
-		public static Batiment(){
+		public static Batiments(){
 		//Methode statique retournant tous les batiments existantes
 
 			$req = 'SELECT * FROM BATIMENT';
