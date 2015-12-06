@@ -1,4 +1,4 @@
-<?php
+ <?php
 error_reporting(E_ALL);
 session_start();
 include_once('modele/configuration.php');
@@ -62,6 +62,7 @@ else {
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'technologie') {
 		# Affiche la technologie et auxquelles elle mène (et ses dépendances)
+		include_once('controleur/technologie.php');
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'carte') {
 		# Affichage de la carte (liens vers les profiles depuis les cases des gens)

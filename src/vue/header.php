@@ -56,7 +56,7 @@ include_once('./modele/joueur.php'); ?>
 	</div></li>
       <li><a href="#">Batiments</a></li>
       <li><a href="index.php?page=liste_unites">Armée</a></li>
-      <li><a href="#">Recherche</a></li>
+      <li><a href="index.php?page=technologie">Recherche</a></li>
       <li><a href="#">Carte</a></li>
     </ul>
 <?php endif ?>

@@ -6,4 +6,3 @@
 	$tech = Technologie::Technologies();
 
 	include_once('./vue/Technologie.php');
-?>
