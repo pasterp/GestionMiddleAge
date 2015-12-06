@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - BDD_pphelipo@serveurmysql" uuid="f8f99897-fc9d-4dc6-9469-30e0f084a99a">
+      <secret-storage>master_key</secret-storage>
+      <user-name>pphelipo</user-name>
+      <schema-pattern>BDD_pphelipo.*</schema-pattern>
+      <default-schemas>BDD_pphelipo.*</default-schemas>
+    </data-source>
+  </component>
+</project>

@@ -7,7 +7,10 @@
 	<?php foreach ($t as $value) {
 		echo "<li style='list-style-type: none;margin-bottom:5px;'><img src='".$value[3]."' style='width:45px; height:45px;' />".$value[1]." : <span style='font-style:italic;'>".$value[2]."</span></li>";
 	}  ?>
-    </ul>
+</ul>
 
-    <?php } ?> 
+
+
+
+    <?php } ?>
 <?php include_once('vue/footer.php'); ?>

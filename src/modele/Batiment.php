@@ -23,7 +23,7 @@
 	    			$this->hydrate($this->Batiment($args[0]));
 	    		}
 	    	}
-			
+
 		}
 
 		public function hydrate(array $donnees)
@@ -62,7 +62,7 @@
 
 		// Liens des table pour batiment
 
-		/*------------------------------------------
+
 		public function genRessourcesLink(){
 			global $bdd;
 			foreach (Ressource::Ressources() as $row) {
@@ -70,7 +70,7 @@
 				$req = $bdd->exec($req);
 			}
 		}
-		
+
 		public function getRessourcesLink(){
 			$etatsRessources = array();
 			global $bdd;
@@ -88,7 +88,7 @@
 				$req = $bdd->exec($req);
 			}
 		}
-		
+
 		public function getUpgradeLink(){
 			$etatsTechnologies = array();
 			global $bdd;
@@ -99,43 +99,40 @@
 			return $req;
 		}
 
-		public function genProdRessourceLink(){
-			global $bdd;
-			foreach (Ressource::Ressources() as $row) {
-				$req = "INSERT INTO PRODUIT_RESSOURCE(quantite, idRessource, idBatiment) VALUES ( 500, '".$row['idRessource']."','".$this->idBatiment."')";
-				$req = $bdd->exec($req);
-			}
-		}
-		
+		// public function genProdRessourceLink(){
+		// 	global $bdd;
+		// 	foreach (Ressource::Ressources() as $row) {
+		// 		$req = "INSERT INTO PRODUIT_RESSOURCE(quantite, idRessource, idBatiment) VALUES ( 500, '".$row['idRessource']."','".$this->idBatiment."')";
+		// 		$req = $bdd->exec($req);
+		// 	}
+		// }
+
 		public function getProdRessourceLink(){
-			$etatsRessources = array();
 			global $bdd;
-			$req = "SELECT quantite, idRessource FROM PRODUIT_RESSOURCE WHERE idBatiment='".$this->iBatiment."'";
+			$req = "SELECT quantite, idRessource FROM PRODUIT_RESSOURCE WHERE idBatiment='".$this->getIdBatiment()."'";
 			$req = $bdd->query($req);
 			$req = $req->fetchAll();
 
 			return $req;
 		}
 
-		public function genProdUniteLink(){
-			global $bdd;
-			foreach (Unite::Unites() as $row) {
-				$req = "INSERT INTO PRODUIT_UNITE(quantite, idUnite, idBatiment) VALUES ( 0 , '".$row['idUnite']."','".$this->idBatiment."')";
-				$req = $bdd->exec($req);
-			}
-		}
-		
+		// public function genProdUniteLink(){
+		// 	global $bdd;
+		// 	foreach (Unite::Unites() as $row) {
+		// 		$req = "INSERT INTO PRODUIT_UNITE(quantite, idUnite, idBatiment) VALUES ( 0 , '".$row['idUnite']."','".$this->getIdBatiment()."')";
+		// 		$req = $bdd->exec($req);
+		// 	}
+		// }
+
 		public function getProdUniteLink(){
 			$etatsUnites = array();
 			global $bdd;
-			$req = "SELECT quantite, idRessource FROM PRODUIT_RESSOURCE WHERE idBatiment='".$this->iBatiment."'";
+			$req = "SELECT quantite, idRessource FROM PRODUIT_RESSOURCE WHERE idBatiment='".$this->getIdBatiment()."'";
 			$req = $bdd->query($req);
 			$req = $req->fetchAll();
 
 			return $req;
 		}
-
-		----------------------------------------------------*/
 
 		// getters
 

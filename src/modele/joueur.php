@@ -6,9 +6,10 @@ Toute les partie en commentaire sont des ajouts à vérifiés
 
 include_once('./modele/connexion_sql.php');
 include_once ('./modele/ressource.php');
+include_once('./modele/Batiment.php');
 /*--------------------------------------
 include_once('./modele/Unite.php');
-include_once('./modele/Batiment.php');
+
 ---------------------------------------*/
 //include_once('./modele/case.php');
 
@@ -32,7 +33,7 @@ class Joueur
     			$this->hydrate($this->Joueur($args[0]));
     		}
     	}
-		
+
 	}
 
 	public function hydrate(array $donnees)
@@ -134,7 +135,7 @@ class Joueur
 			$req = $bdd->exec($req);
 		}
 	}
-	
+
 	public function getBatimentLink(){
 		global $bdd;
 		$req = "SELECT idBatiment FROM POSSEDE_BATIMENT WHERE idJoueur ='".$this->idJoueur."'";
@@ -152,6 +153,34 @@ class Joueur
 
         return $req;
     }
+
+		public function updateRessourceLink($idRessource, $quantite){
+			global $bdd;
+			$req = "UPDATE POSSEDE_RESSOURCE SET quantite='".$quantite."' WHERE idRessource='".$idRessource."' AND idJoueur='".$this->idJoueur."'";
+			$bdd->exec($req);
+		}
+
+		public function nextCycle(){
+			//On doit mettre à jour le nombre de ressource selon la prodiction des Batiments.
+			$ressources = $this->getRessourcesLink();
+			$batiments = $this->getBatimentLink();
+			foreach ($batiments as $bat) {
+					$batiment = new Batiment($bat['idBatiment']);
+					if ($batiment->getIdType() == 1) {
+							$ress = $batiment->getProdRessourceLink();
+							foreach ($ress as $res) {
+									for($i=0; $i < count($ressources); $i++) {
+										if($ressources[$i][1]->getIdRessource() == $res['idRessource']){
+												$ressources[$i][0]= $ressources[$i][0] + $res['quantite'];
+											}
+										}
+							}
+					}
+			}
+			foreach ($ressources as $res) {
+				$this->updateRessourceLink($res[1]->getIdRessource(), $res[0]);
+			}
+		}
 
 	// getters
 
@@ -183,7 +212,7 @@ class Joueur
 
 	public function setSexeJoueur($v){
 		$this->sexeJoueur = $v;
-	} 
+	}
 
 	public function setDateNaissanceJoueur($v){
 		$this->dateNaissanceJoueur = $v;

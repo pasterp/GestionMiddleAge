@@ -24,10 +24,7 @@ else {
 	else if (isset($_POST['page']) && $_POST['page'] == 'postLogin') {
 		# ou envoie le login
 		include_once 'controleur/login_post.php';
-	}	
-	else if (isset($_GET['page']) && $_GET['page'] == 'postLogin') {
-		# on on affiche les messages d'erreur ou les messages de ok
-	} 
+	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'inscription') {
 		# page d'inscription
 		include_once('controleur/inscription.php');

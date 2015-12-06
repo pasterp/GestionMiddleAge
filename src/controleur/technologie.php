@@ -24,6 +24,7 @@ if (estAuthentifier()) {
             array_push($techInconnues, $t);
         }
     }
+
 }else{
     retourEnTerresConnues();
 }
