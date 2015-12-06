@@ -78,15 +78,4 @@ class Ressource {
 	}
 	
 	
-	
-	
 }
-
-
-/*	public function set€($€){
-		$this->€ = $€;
-	}
-	public function get€(){
-		return $this->€;
-	} 
-*/

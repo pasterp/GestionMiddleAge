@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 session_start();
 include_once('modele/configuration.php');
 include_once('modele/connexion_sql.php');
-include_once('modele/authentification.php');
 
 if ($bdd == false || isMaintenance()) {
 	$warn = "Le site est actuellement indisponible, veuillez nous en escusez...";
@@ -47,25 +46,21 @@ else {
 	else if (isset($_GET['page']) && $_GET['page'] == 'profile') {
 		# profile d'un joueur (maybe pas tout afficher de son état ?) possibilité d'attaque ?
 	}
-	else if (isset($_GET['page']) && $_GET['page'] == 'liste_batiments') {
-		# obvious
-	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'batiment') {
-		# Page d'un batiment : etat (prod actuelle), upgrade (cout + durée)
+		# obvious
+        include_once("controleur/batiment.php");
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'liste_unites') {
 		# obvious
 		include_once('controleur/unite.php');
 	}
-	else if (isset($_GET['page']) && $_GET['page'] == 'liste_technologies') {
-		# liste des technologies acquises puis des technologies à venir (grisé)
-	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'technologie') {
-		# Affiche la technologie et auxquelles elle mène (et ses dépendances)
-		include_once('controleur/technologie.php');
+        # liste des technologies acquises puis des technologies à venir (grisé)
+        include_once('controleur/technologie.php');
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'carte') {
 		# Affichage de la carte (liens vers les profiles depuis les cases des gens)
+        include_once("controleur/carte.php");
 	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'management') {
 		# management général (production actuelle, pleins de cvaleurs et tout et tout)

@@ -1,4 +1,5 @@
 <?php
+include_once('./modele/authentification.php');
 
 $titre = "Connexion";
 if (estAuthentifier()) {

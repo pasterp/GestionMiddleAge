@@ -19,7 +19,6 @@ class Joueur
 {
 	private $idJoueur, $pseudoJoueur, $sexeJoueur, $dateNaissanceJoueur, $mailJoueur, $image, $motdepasseJoueur;
 
-	private $case;
 
 	function __construct()
 	{
@@ -70,21 +69,21 @@ class Joueur
 		return $liste;
 	}
 
-	public function save(){
-		global $bdd;
-		if ($this->idJoueur == NULL) {
-			$donnees = array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->motdepasseJoueur);
-			//On a pas d'id donc c'est une nouvelle entrée !
-			$req = $bdd->prepare('INSERT INTO JOUEUR(pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, date_inscripion, date_last_connection, motdepasseJoueur) VALUES(?, ?, ?, ?, ?, NOW(), NOW(), ? ) ');
-			$req->execute($donnees);
-			$this->idJoueur=$bdd->lastInsertId();
-			$this->genRessourcesLink();
-		}else{
-			//Sinon c'est que l'on update
-			$req = $bdd->prepare('UPDATE JOUEUR SET pseudoJoueur=?, sexeJoueur=?, dateNaissanceJoueur=?, mailJoueur=?, image=?, date_last_connection=NOW(), motdepasseJoueur=? where idJoueur=?');
-			$req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->idJoueur,$this->motdepasseJoueur));
-		}
-	}
+    public function save(){
+        global $bdd;
+        if ($this->idJoueur == NULL) {
+            $donnees = array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image, $this->motdepasseJoueur);
+            //On a pas d'id donc c'est une nouvelle entrée !
+            $req = $bdd->prepare('INSERT INTO JOUEUR(pseudoJoueur, sexeJoueur, dateNaissanceJoueur, mailJoueur, image, date_inscripion, date_last_connection, motdepasseJoueur) VALUES(?, ?, ?, ?, ?, NOW(), NOW(), ? ) ');
+            $req->execute($donnees);
+            $this->idJoueur=$bdd->lastInsertId();
+            $this->genRessourcesLink();
+        }else{
+            //Sinon c'est que l'on update
+            $req = $bdd->prepare('UPDATE JOUEUR SET pseudoJoueur=?, sexeJoueur=?, dateNaissanceJoueur=?, mailJoueur=?, image=?, date_last_connection=NOW(), motdepasseJoueur=? where idJoueur=?');
+            $req->execute(array( $this->pseudoJoueur, $this->sexeJoueur, $this->dateNaissanceJoueur, $this->mailJoueur, $this->image,$this->motdepasseJoueur, $this->idJoueur));
+        }
+    }
 
 	// lien de tables
 
@@ -97,16 +96,20 @@ class Joueur
 	}
 
 	public function getRessourcesLink(){
-		$etatsRessources = array();
 		global $bdd;
 		$req = "SELECT quantite, idRessource FROM POSSEDE_RESSOURCE WHERE idJoueur='".$this->idJoueur."'";
 		$req = $bdd->query($req);
 		$req = $req->fetchAll();
 
-		return $req;
+		$t = array();
+		foreach ($req as $row){
+			array_push($t, array($row['quantite'], new Ressource($row['idRessource'])));
+		}
+
+		return $t;
 	}
 
-	/*--------------------------------------------------
+
 	public function genUniteLink(){
 		global $bdd;
 		foreach (Unite::Unites() as $row) {
@@ -116,7 +119,6 @@ class Joueur
 	}
 
 	public function getUniteLink(){
-		$etatsUnites = array();
 		global $bdd;
 		$req = "SELECT quantite, idUnite FROM POSSEDE_UNITE WHERE idJoueur ='".$this->idJoueur."'";
 		$req = $bdd->query($req);
@@ -134,7 +136,6 @@ class Joueur
 	}
 	
 	public function getBatimentLink(){
-		$etatsUnites = array();
 		global $bdd;
 		$req = "SELECT idBatiment FROM POSSEDE_BATIMENT WHERE idJoueur ='".$this->idJoueur."'";
 		$req = $bdd->query($req);
@@ -142,7 +143,15 @@ class Joueur
 
 		return $req;
 	}
-	---------------------------------------------------------*/
+
+    public function getTechLink(){
+        global $bdd;
+        $req = "SELECT idTech FROM CONNAIT WHERE idJoueur='".$this->getId()."'";
+        $req = $bdd->query($req);
+        $req = $req->fetchAll();
+
+        return $req;
+    }
 
 	// getters
 

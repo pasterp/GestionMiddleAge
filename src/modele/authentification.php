@@ -5,7 +5,7 @@ include_once('./modele/connexion_sql.php');
 include_once('./modele/joueur.php');
 
 function estAuthentifier(){
-	if ( (isset($_SESSION['connexion']) or isset($_COOKIE['connexion'])) && validateCookie($_COOKIE['connexion'])) {
+	if ( (isset($_SESSION['connexion']) or ( isset($_COOKIE['connexion'])) && validateCookie($_COOKIE['connexion']) ) ) {
 		global $currentJoueur;
 		$currentJoueur = new Joueur($_SESSION['idJoueur']);
 		$currentJoueur->save();
@@ -56,10 +56,15 @@ function validateCookie($cookie){
 		global $bdd;
 		$req = "SELECT idJoueur FROM JOUEUR WHERE pseudoJoueur='".explode(" ", $cookie)[0]."'";
 		$req = $bdd->query($req);
-		$req = $req->fetch()['idJoueur'];
+        if ($req){
+            $req = $req->fetch()['idJoueur'];
 
-		$_SESSION['idJoueur'] = $req;
-		return true;
+            $_SESSION['idJoueur'] = $req;
+            return true;
+        }
+        else{
+            return false;
+        }
 	}
 }
 

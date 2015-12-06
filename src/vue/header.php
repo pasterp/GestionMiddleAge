@@ -1,5 +1,6 @@
 <?php include_once('./modele/ressource.php');
-include_once('./modele/joueur.php'); ?>
+include_once('./modele/joueur.php');
+include_once('./modele/authentification.php'); ?>
 
 <!DOCTYPE html>
 <html class="no-js" lang="fr">
@@ -8,6 +9,7 @@ include_once('./modele/joueur.php'); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php if(isset($titre)){echo $titre;}else{echo $titreSite;} ?></title>
 	<link rel="stylesheet" href="css/foundation.css" />
+	<link rel="stylesheet" href="css/foundation-icons.css" />
     <script src="js/vendor/modernizr.js"></script>
 </head>
 <body>
@@ -22,7 +24,7 @@ include_once('./modele/joueur.php'); ?>
 	
   <section class="top-bar-section">
     <ul class="right">
-<?php if (estAuthentifier()): ?>
+<?php if (estAuthentifier()): global $currentJoueur;?>
       <li class="has-dropdown">
         <a href="#">Mon compte( <?php echo $currentJoueur->getPseudo(); ?> )</a>
         <ul class="dropdown">
@@ -40,14 +42,14 @@ include_once('./modele/joueur.php'); ?>
     <ul class="left">
     <li><a data-dropdown="dropRes" aria-controls="dropRes" aria-expanded="false">↓Ressources↓</a>
 	<div id="dropRes" data-dropdown-content class="f-dropdown content medium" aria-hidden="true" tabindex="-1">
-	  <?php 
+	  <?php
+      global $currentJoueur;
 	  $quantites = $currentJoueur->getRessourcesLink(); 
-	  foreach ($quantites as $ressource) {
-	  	$ressourceActuelle = new Ressource($ressource['idRessource']);
+	  foreach ($quantites as $ressourceActuelle) {
 	  	?><div class="row">
 	  		<div class="columns large-6">
-	  			<img src="<?php echo  $ressourceActuelle->getImage(); ?>" style="width:35px; height:35px;"  title="<?php echo  $ressourceActuelle->getNomRessource(); ?>" />
-	  			<span style=""> <?php echo $ressource['quantite'] ?> </span>
+	  			<img src="<?php echo  $ressourceActuelle[1]->getImage(); ?>" style="width:35px; height:35px;"  title="<?php echo  $ressourceActuelle[1]->getNomRessource(); ?>" />
+	  			<span style=""> <?php echo $ressourceActuelle[0] ?> </span>
 	  		</div>
 	  	</div>
 	  	<?php

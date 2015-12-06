@@ -68,14 +68,14 @@
 			return $this->descriptionTech;
 		}
 
-		public function getimage(){
+		public function getImage(){
 			return $this->image;
 		}
 
 		// setters
 
 		public function setIdTech($i){
-			$this->idJoueur = (int) $i;
+			$this->idTech = (int) $i;
 		}
 
 		public function setNomTech($n){
@@ -86,7 +86,7 @@
 			$this->descriptionTech = strtolower($d);
 		}
 		
-		public function setimage($p){
+		public function setImage($p){
 			$this->image = $p;
 		}
 	}
