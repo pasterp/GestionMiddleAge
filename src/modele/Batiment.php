@@ -43,7 +43,7 @@
 			$req = 'SELECT * FROM BATIMENT';
 			global $bdd;
 			$req = $bdd->query($req);
-			return $req->fetchAll();
+			$req = $req->fetchAll();
 
 			$liste = array();
 			foreach ($req as $row) {
