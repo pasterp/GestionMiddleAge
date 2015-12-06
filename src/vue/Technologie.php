@@ -44,6 +44,7 @@
                         <p style="color: lightgrey"><?php echo ucfirst($te->getDescriptionTech());?></p>
                     </div>
                 </div>
+                <a href="index.php?page=post_tech&tech=create&id=$te->getIdTech()"class="button">Ajouter</a>
             </div>
         </div>
     </div>

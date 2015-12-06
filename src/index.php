@@ -55,6 +55,9 @@ else {
         # liste des technologies acquises puis des technologies à venir (grisé)
         include_once('controleur/technologie.php');
 	}
+	else if (isset($_GET['page']) && $_GET['page'] == 'liste_technologies') {
+		include_once ('controleur/post_tech.php');
+	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'carte') {
 		# Affichage de la carte (liens vers les profiles depuis les cases des gens)
         include_once("controleur/carte.php");
