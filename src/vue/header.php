@@ -62,10 +62,10 @@ include_once('./modele/authentification.php'); ?>
 	  }
 	  ?>
 	</div></li>
-      <li><a href="#">Batiments</a></li>
+      <li><a href="index.php?page=batiment">Batiments</a></li>
       <li><a href="index.php?page=liste_unites">Armée</a></li>
       <li><a href="index.php?page=technologie">Recherche</a></li>
-      <li><a href="#">Carte</a></li>
+      <li><a href="index.php?page=carte">Carte</a></li>
     </ul>
 <?php endif ?>
   </section>
