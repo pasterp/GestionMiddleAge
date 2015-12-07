@@ -24,5 +24,6 @@
   </div>
 </div>
 </div>
-<?php}?>
+<?php } ?>
+
 <?php include_once('vue/footer.php'); ?>
