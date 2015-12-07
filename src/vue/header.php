@@ -21,7 +21,7 @@ include_once('./modele/authentification.php'); ?>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
-	
+
   <section class="top-bar-section">
     <ul class="right">
 <?php if (estAuthentifier()): global $currentJoueur;?>
@@ -44,12 +44,18 @@ include_once('./modele/authentification.php'); ?>
 	<div id="dropRes" data-dropdown-content class="f-dropdown content medium" aria-hidden="true" tabindex="-1">
 	  <?php
       global $currentJoueur;
-	  $quantites = $currentJoueur->getRessourcesLink(); 
+	  $quantites = $currentJoueur->getRessourcesLink();
+    $prods = $currentJoueur->getProd();
 	  foreach ($quantites as $ressourceActuelle) {
+      foreach ($prods as $prod) {
+        if ($prod[1]->getIdRessource() == $ressourceActuelle[1]->getIdRessource()) {
+          $gain = $prod[0]-$ressourceActuelle[0];
+        }
+      }
 	  	?><div class="row">
 	  		<div class="columns large-6">
 	  			<img src="<?php echo  $ressourceActuelle[1]->getImage(); ?>" style="width:35px; height:35px;"  title="<?php echo  $ressourceActuelle[1]->getNomRessource(); ?>" />
-	  			<span style=""> <?php echo $ressourceActuelle[0] ?> </span>
+	  			<span style=""> <?php echo $ressourceActuelle[0] ?> (+ <?php echo $gain ?>) </span>
 	  		</div>
 	  	</div>
 	  	<?php
@@ -82,7 +88,7 @@ include_once('./modele/authentification.php'); ?>
 			<?php echo $succes; ?>
 			  <a href="#" class="close">&times;</a>
 			</div>
-			
+
 		<?php } ?>
 
 		<?php if (isset($warn)) { ?>
@@ -91,7 +97,7 @@ include_once('./modele/authentification.php'); ?>
 			<?php echo $warn; ?>
 			  <a href="#" class="close">&times;</a>
 			</div>
-			
+
 		<?php } ?>
 
 		<?php if (isset($info)) { ?>
@@ -100,7 +106,7 @@ include_once('./modele/authentification.php'); ?>
 			<?php echo $info; ?>
 			  <a href="#" class="close">&times;</a>
 			</div>
-			
+
 		<?php } ?>
 	</div>
 </div>
