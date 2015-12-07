@@ -1,10 +1,17 @@
-<?php 
+<?php
 	include_once('./modele/ressource.php');
 	include_once('./modele/Unite.php');
+	include_once('./modele/authentification.php');
 
-	$titre="Mes unités";
-	$res = Ressource::Ressources();
-	$uni = Unite::Unites();
+
+if (estAuthentifier()) {
+    global $currentJoueur;
+    $titre="Mes Unités";
+		$uni = Unite::Unites();
+}else{
+    retourEnTerresConnues();
+}
+
 
 	include_once('./vue/Unite.php');
 ?>
