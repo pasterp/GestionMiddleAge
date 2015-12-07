@@ -9,7 +9,7 @@ if ($bdd == false || isMaintenance()) {
 	include_once('vue/maintenance.php');
 }
 else {
-  include_once('./controleur/Engine.php');
+ // include_once('./controleur/Engine.php');
 	if( !isset($_POST['page']) && (!isset($_GET['page']) ||
 		$_GET['page'] == "index" ||
 		$_GET['page'] == 'accueil')){
