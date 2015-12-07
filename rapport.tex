@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \author{\textsc{\textbf{Phélipot Pascal}}\\\textsc{Noro Geoffrey}\\\textsc{Ralijaona Tiona}\\\textsc{Rimoux Quentin}}
 \title{Projet de BDD : Gestion au Moyen Age}
 \date\today
@@ -19,9 +20,9 @@
 \newpage\pagenumbering{arabic}
 \section{Introduction}
 \subsection{L'idée}
-Le projet est un jeu par navigateur orienté strategie en multijoueur. 
-Chaque joueur dispose d'une base sur une carte. Il a la possibilité d'y construire des batiments, de gérer ses ressources et de lancer la recherche de nouvelles technologies.
-Les ressources sont générées chaque minute pour chaque utilisateur et il faut améliorer ses batiments pour en produire plus. \\
+Le projet est un jeu par navigateur orienté stratégie en multijoueur. 
+Chaque joueur dispose d'une base sur une carte. Il a la possibilité d'y construire des bâtiments, de gérer ses ressources et de lancer la recherche de nouvelles technologies.
+Les ressources sont générées chaque minute pour chaque utilisateur et il faut améliorer ses bâtiments pour en produire plus. \\
 Le but du jeu est d'attaquer les autres joueurs afin de gagner des ressources et d'améliorer sa base au maximum. \\
 
 
@@ -34,9 +35,11 @@ Le but du jeu est d'attaquer les autres joueurs afin de gagner des ressources et
 	\item Affichage
 
 	\item Données \\
-	Tout le monde a participé à l'ajout de nouvelles unités et de batiments.
+	Tout le monde a participé à l'ajout de nouvelles unités et de bâtiments.
 \end{itemize}
 \subsection{Gestion de projet}
+Pour gérer ce projet nous avons bosser tout ensemble simultanément grâce à la plate-forme Github, qui permet de gérer la version de son code et de fusionner les travaux de chacun.\\
+Le projet est accessible en ligne à l'adresse :  \url{http://www.github.com/pasterp/GestionMiddleAge}
 
 \newpage\section{Représentation des données}
 \subsection{Modèle-Vue-Contrôleur}
@@ -72,5 +75,7 @@ Chaque page chargée entraine une vérification de l'heure du dernier cycle, PHP
 \newpage\pagenumbering{Roman}
 \section{Annexes}
 \subsection{Base de données}
-\includegraphics{./sql/last.png}
+\begin{figure}[!h]
+\includegraphics[scale=0.3]{./sql/last.png}
+\end{figure}
 \end{document}
