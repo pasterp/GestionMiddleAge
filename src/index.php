@@ -9,10 +9,11 @@ if ($bdd == false || isMaintenance()) {
 	include_once('vue/maintenance.php');
 }
 else {
+  include_once('./controleur/Engine.php');
 	if( !isset($_POST['page']) && (!isset($_GET['page']) ||
-		$_GET['page'] == "index" || 
+		$_GET['page'] == "index" ||
 		$_GET['page'] == 'accueil')){
-	    
+
 	    include_once('controleur/accueil.php');
 
 
@@ -28,7 +29,7 @@ else {
 	else if (isset($_GET['page']) && $_GET['page'] == 'inscription') {
 		# page d'inscription
 		include_once('controleur/inscription.php');
-	} 
+	}
 	else if (isset($_GET['page']) && $_GET['page'] == 'postInscription') {
 		# on on affiche les messages d'erreur ou les messages de ok
 	}
@@ -77,4 +78,3 @@ else {
 		include_once('vue/page404.php');
 	}
 }
-
