@@ -11,7 +11,7 @@ INSERT INTO TECHNOLOGIE(idTech, nomTech, descriptionTech, image) VALUES
   (1, 'Travail du bois', 'Après avoir vainement tester de le manger, le bois s\'est avéré un parfait matériau de construction pour des batiments comme pour des armes', './img/science.png'),
   (2, 'Tir à l\'arc', 'Les essais infructueux de lancer des pierres à la main ne vous découragèrent pas dans la fabrication d\'une arme plus évoluée', './img/science.png'),
   (3, 'Travail du métal', 'Vous avez réussi à rendre vos fours suffisament chaud pour rendre le fer maléable, à vous les outils et amres plus solides et efficaces !', './img/science.png'),
-  (4, 'Armures', 'Portez cette armure de 200kg protège de tout, même des ISM car vous ne pouvez guère prendre soin d\'une dame en l\'écrasant ainsi (cf le commité des Femmes Ecrasées par leur Maris En arMure', './img/science.png'),
+  (4, 'Armures', 'Portez cette armure de 200kg protège de tout, même des IST car vous ne pouvez guère prendre soin d\'une dame en l\'écrasant ainsi (cf le commité des Femmes Ecrasées par leur Maris En arMure)', './img/science.png'),
   (5, 'Géométrie', '#LaGuerreCestUneQuestionDePiEtDeGore', './img/science.png'),
   (6, 'Armes de siège', 'Non, ce n\'est pas pour s\'asseoir dedans', './img/science.png');
 
@@ -29,7 +29,7 @@ INSERT INTO UNITE(idUnite, nomUnite, puissanceUnite, image) VALUES
   (4, 'Arquebusier', 150, './img/attaque.png'),
   (5, 'Catapulte', 200, './img/attaque.png'),
   (6, 'Canon', 500, './img/attaque.png'),
-  (42, 'Chevalier Jedi', 999999999999999999, './img/attaque.png');
+  (42, 'Chevalier Jedi', 999999999999999999, './img/jedi.png');
 
 INSERT INTO UNITE_DEPEND_DE(idUnite, idTech) VALUES
   (2, 2),
@@ -74,7 +74,7 @@ INSERT INTO   JOUEUR(idJoueur, pseudoJoueur, motdepasseJoueur, sexeJoueur, dateN
   (2, 'tiona', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@youare.me', NOW(), NOW()),
   (3, 'quentin', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@youare.me', NOW(), NOW()),
   (4, 'geoffrey', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@youare.me', NOW(), NOW()),
-  (5, 'test', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@youare.me', NOW(), NOW());
+  (5, 'alexandru', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@youare.me', NOW(), NOW());
 
 INSERT INTO POSSEDE_RESSOURCE(idJoueur, idRessource, quantite) VALUES
   (1, 1, 501),
@@ -140,7 +140,7 @@ INSERT INTO POSSEDE_UNITE(idJoueur, idUnite, quantite) VALUES
   (5, 42, 0);
 
 INSERT INTO POSSEDE_BATIMENT(idJoueur, idBatiment) VALUES
-  (1,1), (1,3), (1,4),
+  (1,1), (1,3), (1,4), (1,2),
   (2,1), (2,3), (2,4),
   (3,1), (3,3), (3,4),
   (4,1), (4,3), (4,4),
@@ -159,8 +159,18 @@ INSERT INTO COUTE_TECH(idTech,idRessource,quantite) VALUES
   (2,3,80),
   (2,4,0),
   (2,5,20),
-  (3,1,50),
+  (3,1,0),
   (3,2,100),
   (3,3,80),
-  (3,4,0),
-  (3,5,20);
+  (3,4,30),
+  (3,5,20),
+  (4,1,20),
+  (4,2,100),
+  (4,3,80),
+  (4,4,0),
+  (4,5,20),
+  (5,1,20),
+  (5,2,100),
+  (5,3,80),
+  (5,4,60),
+  (5,5,20);

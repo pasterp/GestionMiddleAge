@@ -2,6 +2,7 @@
 include_once('./modele/Technologie.php');
 include_once('./modele/joueur.php');
 include_once('./modele/authentification.php');
+include_once ('./modele/ressource.php');
 
 
 if (estAuthentifier()) {
@@ -18,16 +19,18 @@ if (estAuthentifier()) {
                 $b = true;
             }
         }
+        $resUtilisee = $t->getRessourcesLink();
         if($b){
-            array_push($techConnues, $t);
+            array_push($techConnues,$t);
         }else{
-            array_push($techInconnues, $t);
+            array_push($techInconnues, array($t, $resUtilisee));
         }
     }
 
 }else{
     retourEnTerresConnues();
 }
+
 
 
 	include_once('./vue/Technologie.php');

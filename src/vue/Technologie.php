@@ -31,22 +31,31 @@
         <div class="small-6 large-12 columns">
             <div class="panel">
                 <div class="row">
-                    <h1 style="color: lightgrey" title="Vous n'avez pas encore découvert cette technologie"><i class="step fi-alert"> </i><?php echo ucfirst($te->getNomTech());?></h1>
+                    <h1 style="color: lightgrey" title="Vous n'avez pas encore découvert cette technologie"><i class="step fi-alert"> </i><?php echo ucfirst($te[0]->getNomTech());?></h1>
                     <hr>
                 </div>
                 <div class="row" >
                     <div class="small-4 columns">
-                        <img style="opacity: 0.4" src="<?php echo $te->getImage();?>" /> </div>
+                        <img style="opacity: 0.4" src="<?php echo $te[0]->getImage();?>" /> </div>
                     <div class="small-8 columns" >
                         <h4 style="color: lightgrey"> Coût de la Technologie:</h4>
-                        <p style="color: lightgrey">test</p>
+
+                        <p style="color: lightgrey">
+                        <span>
+                          <?php foreach ($te[1] as $rez) {
+                            $rezA = new Ressource($rez[1]);
+                            echo "<span>".$rez[0]."</span><img src=\"".$rezA->getImage()."\" style=\"width:35px; height:35px; opacity: 0.4\"  title=\"".$rezA->getNomRessource()."\" />";
+                          } ?>
+                        </span>
+                        </p>
                         <h5 style="color: lightgrey"> Description:</h5>
-                        <p style="color: lightgrey"><?php echo ucfirst($te->getDescriptionTech());?></p>
+                        <p style="color: lightgrey"><?php echo ucfirst($te[0]->getDescriptionTech());?></p>
                     </div>
                 </div>
-                <a href="index.php?page=post_tech&tech=create&id=$te->getIdTech()"class="button">Ajouter</a>
+                <a href="index.php?page=post_tech&tech=create&id=<?php echo $te[0]->getIdTech(); ?>" class="button">Ajouter</a>
             </div>
         </div>
     </div>
 <?php } ?>
+
 <?php include_once('vue/footer.php'); ?>

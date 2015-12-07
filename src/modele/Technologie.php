@@ -65,7 +65,7 @@
 		public function getRessourcesLink(){
 			$etatsRessources = array();
 			global $bdd;
-			$req = "SELECT quantite, idRessource FROM COUTE_TECH WHERE idUnite='".$this->idTech."'";
+			$req = "SELECT quantite, idRessource FROM COUTE_TECH WHERE idTech='".$this->idTech."'";
 			$req = $bdd->query($req);
 			$req = $req->fetchAll();
 
