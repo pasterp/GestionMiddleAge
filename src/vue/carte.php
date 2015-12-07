@@ -1,8 +1,8 @@
 <?php
-	include_once('/vue/header.php');
+	include_once('./vue/header.php');
 ?>
 
 
 <?php
-	include_once('/vue/footer.php');
+	include_once('./vue/footer.php');
 ?>
