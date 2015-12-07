@@ -64,8 +64,6 @@
 
 		// Liens de tables
 
-		/*-------------------------------------------------
-
 		public function genRessourcesLink(){
 			global $bdd;
 			foreach (Ressource::Ressources() as $row) {
@@ -101,7 +99,6 @@
 
 			return $req;
 		}
-		----------------------------------------------------*/
 
 		// getters
 

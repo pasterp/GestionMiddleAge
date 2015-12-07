@@ -154,6 +154,12 @@ class Joueur
         return $req;
     }
 
+    public function genTechLink($idTech){
+    	global $bdd;
+    	$req = "INSERT INTO CONNAIT(idJoueur, idTech) VALUES ('".$this->idJoueur."','".$idTech."')";
+    	$req = $bdd->exec($req)
+    }
+
 		public function updateRessourceLink($idRessource, $quantite){
 			global $bdd;
 			$req = "UPDATE POSSEDE_RESSOURCE SET quantite='".$quantite."' WHERE idRessource='".$idRessource."' AND idJoueur='".$this->idJoueur."'";

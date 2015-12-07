@@ -54,6 +54,24 @@
 			return $req;
 		}
 
+		public function genRessourcesLink(){
+			global $bdd;
+			foreach (Ressource::Ressources() as $row) {
+				$req = "INSERT INTO COUTE_TECH(idTech, idRessource, quantite) VALUES ('".$this->idTech."', '".$row['idRessource']."','".$row['quantite']."')";
+				$req = $bdd->exec($req);
+			}
+		}
+
+		public function getRessourcesLink(){
+			$etatsRessources = array();
+			global $bdd;
+			$req = "SELECT quantite, idRessource FROM COUTE_TECH WHERE idUnite='".$this->idTech."'";
+			$req = $bdd->query($req);
+			$req = $req->fetchAll();
+
+			return $req;
+		}
+
 		// getters
 
 		public function getIdTech(){

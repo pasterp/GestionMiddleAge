@@ -152,3 +152,15 @@ INSERT INTO CONNAIT(idJoueur, idTech) VALUES
   (3,1),
   (4,1),
   (5,1);
+
+INSERT INTO COUTE_TECH(idTech,idRessource,quantite) VALUES
+  (2,1,50),
+  (2,2,100),
+  (2,3,80),
+  (2,4,0),
+  (2,5,20),
+  (3,1,50),
+  (3,2,100),
+  (3,3,80),
+  (3,4,0),
+  (3,5,20);
