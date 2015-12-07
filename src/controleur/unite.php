@@ -6,7 +6,6 @@
 
 	if (estAuthentifier()) {
     global $currentJoueur;
-    $uc = $currentJoueur->getIdUnite();
     $titre="Mes Unités";
 	$uni = Unite::Unites();
 }else{
