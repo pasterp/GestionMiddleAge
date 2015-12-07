@@ -188,6 +188,26 @@ class Joueur
 			}
 		}
 
+		public function getProd(){
+			//On doit mettre à jour le nombre de ressource selon la prodiction des Batiments.
+			$ressources = $this->getRessourcesLink();
+			$batiments = $this->getBatimentLink();
+			foreach ($batiments as $bat) {
+					$batiment = new Batiment($bat['idBatiment']);
+					if ($batiment->getIdType() == 1) {
+							$ress = $batiment->getProdRessourceLink();
+							foreach ($ress as $res) {
+									for($i=0; $i < count($ressources); $i++) {
+										if($ressources[$i][1]->getIdRessource() == $res['idRessource']){
+												$ressources[$i][0]= $ressources[$i][0] + $res['quantite'];
+											}
+										}
+							}
+					}
+			}
+			return $ressources;
+		}
+
 	// getters
 
 	public function getPseudo(){return ucfirst($this->pseudoJoueur);}
