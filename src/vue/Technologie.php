@@ -52,7 +52,7 @@
                         <p style="color: lightgrey"><?php echo ucfirst($te[0]->getDescriptionTech());?></p>
                     </div>
                 </div>
-                <a href="index.php?page=post_tech&tech=create&id=$te->getIdTech()"class="button">Ajouter</a>
+                <a href="index.php?page=post_tech&tech=create&id=<?php echo $te[0]->getIdTech(); ?>" class="button">Ajouter</a>
             </div>
         </div>
     </div>
