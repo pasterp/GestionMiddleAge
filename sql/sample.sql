@@ -22,14 +22,14 @@ INSERT INTO TECH_DEPEND_DE(techUpgrade, techRequis) VALUES
   (6,3),
   (6,5); -- SELECT (nomTech) FROM TECHNOLOGIE t LEFT JOIN TECH_DEPEND_DE ON t.idTech=TECH_DEPEND_DE.techRequis WHERE TECH_DEPEND_DE.techUpgrade = 6;
 
-INSERT INTO UNITE(idUnite, nomUnite, puissanceUnite) VALUES
-  (1, 'Paysan', 1),
-  (2, 'Archer', 15),
-  (3, 'Chevalier', 100),
-  (4, 'Arquebusier', 150),
-  (5, 'Catapulte', 200),
-  (6, 'Canon', 500),
-  (42, 'Chevalier Jedi', 999999999999999999);
+INSERT INTO UNITE(idUnite, nomUnite, puissanceUnite, image) VALUES
+  (1, 'Paysan', 1, './img/attaque.png'),
+  (2, 'Archer', 15, './img/attaque.png'),
+  (3, 'Chevalier', 100, './img/attaque.png'),
+  (4, 'Arquebusier', 150, './img/attaque.png'),
+  (5, 'Catapulte', 200, './img/attaque.png'),
+  (6, 'Canon', 500, './img/attaque.png'),
+  (42, 'Chevalier Jedi', 999999999999999999, './img/attaque.png');
 
 INSERT INTO UNITE_DEPEND_DE(idUnite, idTech) VALUES
   (2, 2),
