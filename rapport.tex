@@ -7,14 +7,18 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\hypersetup{%
+ pdfborder = {0 0 0}
+}
 \author{\textsc{\textbf{Phélipot Pascal}}\\\textsc{Noro Geoffrey}\\\textsc{Ralijaona Tiona}\\\textsc{Rimoux Quentin}}
 \title{Projet de BDD : Gestion au Moyen Age}
 \date\today
 
 \begin{document}
+\pagenumbering{gobble}
 \maketitle
 \pagestyle{plain}
-\newpage\pagenumbering{Roman}
+\newpage
 \tableofcontents
 
 \newpage\pagenumbering{arabic}
@@ -44,7 +48,7 @@ Le projet est accessible en ligne à l'adresse :  \url{http://www.github.com/pas
 
 \newpage\section{Représentation des données}
 \subsection{Modèle-Vue-Contrôleur}
-Pour concevoir notre projet, nous avons souhaité nous orienter vers une organisation de notre code en MVC ( Modèle-Vue-Contrôleur) avec du PHP orienté objet. Ce système nous a permis de bien structurer notre code. Nous avons donc créer 3 répertoires permettant de rangés les fichiers modèles, vues et controleurs de chacune des tables principales. En ce qui concerne les tables de jonctions quand à elle ne sont présentes uniquement dans des fonctions introduites dans les modèles des autres tables.
+Pour concevoir notre projet, nous avons souhaité nous orienter vers une organisation de notre code en MVC ( Modèle-Vue-Contrôleur) avec du PHP orienté objet. Ce système nous a permis de bien structurer notre code. Nous avons donc créer 3 répertoires permettant de rangés les fichiers modèles, vues et contrôleurs de chacune des tables principales. En ce qui concerne les tables de jonctions quand à elle ne sont présentes uniquement dans des fonctions introduites dans les modèles des autres tables.
 \subsection{Base de Données}
 (Voir Annexes Page I) \\
 La base de données contient les joueurs, les cases de la carte, les différents bâtiments, les ressources et les unités.  \\
@@ -74,10 +78,10 @@ De nombreuses fonctionnalités de ce genre de jeu n'ont pas été implémenté e
 \item Gestion des combats entre utilisateurs
 \item Classement des joueurs
 \end{itemize}
-\newpage\section{Conclusion}
+\section{Conclusion}
 \subsection{Avis personnels}
 \subsubsection{Noro Geoffrey}
-Lors de ce projet nous avons beaucoup travailler en équipe malgré une gestion assez mauvaise du projet qu'il faudra certainement que l'on revoit pour nos prochain projet en commun, mais l'utilisation de github nous à facilité sa réalisation car cela nous permetait de toujours avoir une version à jour du projet et de pouvoir mettre en commun chacune de nos avancés lors de nos travaux individuel. Je penses que la chose la plus importante à revoir est donc notre gestion du temps.
+Lors de ce projet nous avons beaucoup travailler en équipe malgré une gestion assez mauvaise du projet qu'il faudra certainement que l'on revoit pour nos prochain projet en commun, mais l'utilisation de Github nous à facilité sa réalisation car cela nous permettait de toujours avoir une version à jour du projet et de pouvoir mettre en commun chacune de nos avancés lors de nos travaux individuel. Je penses que la chose la plus importante à revoir est donc notre gestion du temps.
 \subsubsection{Phélipot Pascal}
 Ce projet était peut être un peu trop ambitieux pour la durée qui nous a été donné. On a du faire preuve de beaucoup d'organisation face à sa complexité. Le manque de temps et la charge de travail des autres matières aura retardé ce projet malheureusement. Nous avons pu expérimenter le modèle MVC en PHP, bien que nous ne soyons pas sûr si notre méthode a été la bonne cela a permit une meilleure organisation.
 \subsubsection{Ralijaona Tiona}

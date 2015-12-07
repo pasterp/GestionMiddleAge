@@ -1,0 +1,48 @@
+
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[french,frenchb,francais]{babel}
+\usetheme{Marburg}
+\usecolortheme{orchid}
+\setbeamercolor*{titlelike}{use=structure,fg=structure.fg}
+\useoutertheme[height=0pt]{sidebar}
+\setbeamercolor{sidebar}{parent=palette primary}
+{\usebeamercolor{palette quaternary}}
+{\usebeamercolor{palette primary}}
+\author{\textsc{\textbf{Phélipot Pascal}}\\\textsc{Noro Geoffrey}\\\textsc{Ralijaona Tiona}\\\textsc{Rimoux Quentin}}
+\title{Projet de BDD : Gestion au Moyen Age}
+\date\today
+
+\begin{document}
+\begin{frame}
+\maketitle
+\end{frame}
+\begin{frame}
+\frametitle{\insertsection}
+\tableofcontents
+\end{frame}
+
+\AtBeginSection{\frame{\sectionpage}}
+\AtBeginSubsection{\frame{\subsectionpage}}
+
+\section{Introduction}
+\subsection{L'idée}
+
+\subsection{Répartition des rôles}
+\subsection{Mise en œuvre}
+\subsection{Gestion de projet}
+
+
+\newpage\section{Représentation des données}
+\subsection{Modèle-Vue-Contrôleur}
+\subsection{Base de Données}
+
+
+\newpage\section{Gestion des tours}
+
+\newpage\section{Possibilités d'améliorations}
+
+\newpage\section{Conclusion}
+
+
+\end{document}
