@@ -21,7 +21,7 @@ class MapCase {
 		$this->y = $a;
 	}
 
-	public function setIdCase(int $id){
+	public function setIdCase(int $id){	
 		$this->idCase = $id;
 	}
 
