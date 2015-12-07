@@ -8,7 +8,7 @@ INSERT INTO RESSOURCE(idRessource, nomRessource, descriptionRessource, image) VA
 
 
 INSERT INTO TECHNOLOGIE(idTech, nomTech, descriptionTech, image) VALUES
-  (1, 'Travail du bois', 'Après avoir vainement tester de le manger, le bois c\'est avéré un parfait matériau de construction pour des batiments comme pour des armes', './img/science.png'),
+  (1, 'Travail du bois', 'Après avoir vainement tester de le manger, le bois s\'est avéré un parfait matériau de construction pour des batiments comme pour des armes', './img/science.png'),
   (2, 'Tir à l\'arc', 'Les essais infructueux de lancer des pierres à la main ne vous découragèrent pas dans la fabrication d\'une arme plus évoluée', './img/science.png'),
   (3, 'Travail du métal', 'Vous avez réussi à rendre vos fours suffisament chaud pour rendre le fer maléable, à vous les outils et amres plus solides et efficaces !', './img/science.png'),
   (4, 'Armures', 'Portez cette armure de 200kg protège de tout, même des IST car vous ne pouvez guère prendre soin d\'une dame en l\'écrasant ainsi (cf le commité des Femmes Ecrasées par leur Maris En arMure)', './img/science.png'),
@@ -22,14 +22,14 @@ INSERT INTO TECH_DEPEND_DE(techUpgrade, techRequis) VALUES
   (6,3),
   (6,5); -- SELECT (nomTech) FROM TECHNOLOGIE t LEFT JOIN TECH_DEPEND_DE ON t.idTech=TECH_DEPEND_DE.techRequis WHERE TECH_DEPEND_DE.techUpgrade = 6;
 
-INSERT INTO UNITE(idUnite, nomUnite, puissanceUnite, image) VALUES
-  (1, 'Paysan', 1, './img/attaque.png'),
-  (2, 'Archer', 15, './img/attaque.png'),
-  (3, 'Chevalier', 100, './img/attaque.png'),
-  (4, 'Arquebusier', 150, './img/attaque.png'),
-  (5, 'Catapulte', 200, './img/attaque.png'),
-  (6, 'Canon', 500, './img/attaque.png'),
-  (42, 'Chevalier Jedi', 999999999999999999, './img/jedi.png');
+INSERT INTO UNITE(idUnite, nomUnite, puissanceUnite, descriptionUnite, image) VALUES
+  (1, 'Paysan', 1, "Faute de moyen il faut bien que vous puissiez former une armée même si des fourches sont peu utile contre de véritables armes" ,'./img/attaque.png'),
+  (2, 'Archer', 15, "Une flêche un mort tel est la devise de l'archée du moins quand il ne louche pas", './img/attaque.png'),
+  (3, 'Chevalier', 100, "Les chevaliers sont puissant et ont le sens du devoir, mais faites attention à ce qu'il n'y ai pas de noble juvencelle en détresse prêt du champs de battaille il pourrait bien déserté pour la secourir...", './img/attaque.png'),
+  (4, 'Arquebusier', 150, "Et oui des Arquebusiers, précision est leur maître mot. Mais ils aiment aussi festoyer avec un bon vin et cela crée souvent des accidents !", './img/attaque.png'),
+  (5, 'Catapulte', 200, "La catapulte est une extraordinaire invention pour détruire des batiment en projetant des pierres, du bois, des vaches, des moutons et parfois quelque paysans un peu malade ! Eh oui leur manque de puissance les transforme en munition idéale.", './img/attaque.png'),
+  (6, 'Canon', 500, "Le canon est certainement l'unité la plus puissante de ce jeu, du moins tant qu'aucun gueux de notre chateaux décide d'apprendre à voler !", './img/attaque.png'),
+  (42, 'Chevalier Jedi', 999999999999999999, "Pardon ceci est l'unité la plus puissante du jeu le personnage la représentant n'est nul autre qu'Alexandru Dobrila notre maître Jedi de la BDD !!!", './img/jedi.png');
 
 INSERT INTO UNITE_DEPEND_DE(idUnite, idTech) VALUES
   (2, 2),
@@ -41,10 +41,10 @@ INSERT INTO TYPE(idType, nomType) VALUES
   (2, 'Entrainement');
 
 INSERT INTO BATIMENT(idBatiment, nomBatiment, descriptionBatiment, niveauBatiment, idType, image) VALUES
-  (1, "Ferme basique", "", 1, 1, './img/batiment.png'),
-  (2, "Grande Ferme", "", 2, 1, './img/batiment.png'),
-  (3, "Mine", "", 1, 1, './img/batiment.png'),
-  (4, "Chalet", "", 1, 1, './img/batiment.png');
+  (1, "Ferme basique", 'Le lieu idéal pour exploiter vos stupides paysans, et accessoirement produire un peu de nourriture.', 1, 1, './img/batiment.png'),
+  (2, "Grande Ferme", 'Vous en avez marre des banquets pauvres en diversités? Vous voulez manger des produits de qualité? Ne cherchez plus, cette ferme est faîtes pour vous.', 2, 1, './img/batiment.png'),
+  (3, "Mine", 'Pas de nains à envoyer malheureusement, mais les enfants y travaillent aussi très bien.', 1, 1, './img/batiment.png'),
+  (4, "Chalet", 'Depuis quand les chalets produisent-ils du bois?', 1, 1, './img/batiment.png');
 
 INSERT INTO PRODUIT_RESSOURCE(idBatiment, idRessource, quantite) VALUES
   (1, 1, 50),

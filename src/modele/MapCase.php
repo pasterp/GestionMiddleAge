@@ -7,21 +7,21 @@ class MapCase {
 
 	private $x, $y, $idCase;
 
-	function __construct(int $a, int $b, int $id){
+	function __construct($a, $b, $id){
 		$this->x = $a;
 		$this->y = $b;
 		$this->idCase = $id;
 	}
 
-	public function setX(int $a){
+	public function setX($a){
 		$this->x = $a;
 	}
 
-	public function setY(int $a){
+	public function setY($a){
 		$this->y = $a;
 	}
 
-	public function setIdCase(int $id){
+	public function setIdCase($id){	
 		$this->idCase = $id;
 	}
 
@@ -61,5 +61,20 @@ class MapCase {
 			$req = $bdd->prepare('INSERT INTO MAPCASE(idCase, CoordX, CoordY VALUES(?, ?, ?)');
 			$req->execute($datas);
 		}
+	}
+
+	public static function MapCase(){
+		$req = 'SELECT * FROM MAPCASE';
+		global $bdd;
+		$req = $bdd->query($req);
+		$req = $req->fetchAll();
+
+		$list = array();
+		foreach ($req as $row){
+			$mc = new MAPCASE(0, 0, 0);
+			$mc->hydrate($row);
+			array_push($list, $mc);
+		}
+		return $list;
 	}
 }
