@@ -72,7 +72,7 @@ if($req['data'] != 0){
   }
 
   if($need){
-    $req2 = "UPDATE ENGINE_DB SET data='".time()-$diff."'";
+    $req2 = "UPDATE ENGINE_DB SET data='".(time()-$diff)."'";
     $bdd->exec($req2);
   }
 }else {
