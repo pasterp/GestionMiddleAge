@@ -5,6 +5,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
 \author{\textsc{\textbf{Phélipot Pascal}}\\\textsc{Noro Geoffrey}\\\textsc{Ralijaona Tiona}\\\textsc{Rimoux Quentin}}
 \title{Projet de BDD : Gestion au Moyen Age}
 \date\today
@@ -18,24 +20,30 @@
 \newpage\pagenumbering{arabic}
 \section{Introduction}
 \subsection{L'idée}
-Le projet est un jeu par navigateur orienté strategie en multijoueur. 
-Chaque joueur dispose d'une base sur une carte. Il a la possibilité d'y construire des batiments, de gérer ses ressources et de lancer la recherche de nouvelles technologies.
-Les ressources sont générées chaque minute pour chaque utilisateur et il faut améliorer ses batiments pour en produire plus. \\
+Le projet est un jeu par navigateur orienté stratégie en multijoueur. 
+Chaque joueur dispose d'une base sur une carte. Il a la possibilité d'y construire des bâtiments, de gérer ses ressources et de lancer la recherche de nouvelles technologies.
+Les ressources sont générées chaque minute pour chaque utilisateur et il faut améliorer ses bâtiments pour en produire plus. \\
 Le but du jeu est d'attaquer les autres joueurs afin de gagner des ressources et d'améliorer sa base au maximum. \\
 
 
 \subsection{Répartition des rôles}
 \subsection{Mise en œuvre}
 \begin{itemize}
-	\item a 
-	\item b
-	\item c
-	\item d
+	\item Carte du monde 
+	\item Moteur du jeu \\
+	La création du moteur du jeu a été attribuée à Pascal. Il doit réaliser la gestion des tours.
+	\item Affichage
+
+	\item Données \\
+	Tout le monde a participé à l'ajout de nouvelles unités et de bâtiments.
 \end{itemize}
 \subsection{Gestion de projet}
+Pour gérer ce projet nous avons bosser tout ensemble simultanément grâce à la plate-forme Github, qui permet de gérer la version de son code et de fusionner les travaux de chacun.\\
+Le projet est accessible en ligne à l'adresse :  \url{http://www.github.com/pasterp/GestionMiddleAge}
 
 \newpage\section{Représentation des données}
 \subsection{Modèle-Vue-Contrôleur}
+Pour concevoir notre projet, nous avons souhaité nous orienter vers une organisation de notre code en MVC ( Modèle-Vue-Contrôleur) avec du PHP orienté objet. Ce système nous a permis de bien structurer notre code. Nous avons donc créer 3 répertoires permettant de rangés les fichiers modèles, vues et controleurs de chacune des tables principales. En ce qui concerne les tables de jonctions quand à elle ne sont présentes uniquement dans des fonctions introduites dans les modèles des autres tables.
 \subsection{Encapsulation}
 \subsection{Base de Données}
 
@@ -59,12 +67,17 @@ Chaque page chargée entraine une vérification de l'heure du dernier cycle, PHP
 \newpage\section{Conclusion}
 \subsection{Avis personnels}
 \subsubsection{Noro Geoffrey}
+Lors de ce projet nous avons beaucoup travailler en équipe malgré une gestion assez mauvaise du projet qu'il faudra certainement que l'on revoit pour nos prochain projet en commun, mais l'utilisation de github nous à facilité sa réalisation car cela nous permetait de toujours avoir une version à jour du projet et de pouvoir mettre en commun chacune de nos avancés lors de nos travaux individuel. Je penses que la chose la plus importante à revoir est donc notre gestion du temps.
 \subsubsection{Phélipot Pascal}
+
 \subsubsection{Ralijaona Tiona}
 \subsubsection{Rimoux Quentin}
 \subsection{Avis Global}
 
 \newpage\pagenumbering{Roman}
 \section{Annexes}
-
+\subsection{Base de données}
+\begin{figure}[!h]
+\includegraphics[scale=0.3]{./sql/last.png}
+\end{figure}
 \end{document}

@@ -29,7 +29,7 @@ INSERT INTO UNITE(idUnite, nomUnite, puissanceUnite, image) VALUES
   (4, 'Arquebusier', 150, './img/attaque.png'),
   (5, 'Catapulte', 200, './img/attaque.png'),
   (6, 'Canon', 500, './img/attaque.png'),
-  (42, 'Chevalier Jedi', 999999999999999999, './img/attaque.png');
+  (42, 'Chevalier Jedi', 999999999999999999, './img/jedi.png');
 
 INSERT INTO UNITE_DEPEND_DE(idUnite, idTech) VALUES
   (2, 2),
@@ -74,7 +74,7 @@ INSERT INTO   JOUEUR(idJoueur, pseudoJoueur, motdepasseJoueur, sexeJoueur, dateN
   (2, 'tiona', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@youare.me', NOW(), NOW()),
   (3, 'quentin', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@youare.me', NOW(), NOW()),
   (4, 'geoffrey', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@youare.me', NOW(), NOW()),
-  (5, 'test', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@youare.me', NOW(), NOW());
+  (5, 'alexendru', 'c9MfAVndQY3tg', 'male', '01-01-1111', 'contact@youare.me', NOW(), NOW());
 
 INSERT INTO POSSEDE_RESSOURCE(idJoueur, idRessource, quantite) VALUES
   (1, 1, 501),
@@ -140,7 +140,7 @@ INSERT INTO POSSEDE_UNITE(idJoueur, idUnite, quantite) VALUES
   (5, 42, 0);
 
 INSERT INTO POSSEDE_BATIMENT(idJoueur, idBatiment) VALUES
-  (1,1), (1,3), (1,4),
+  (1,1), (1,3), (1,4), (1,2),
   (2,1), (2,3), (2,4),
   (3,1), (3,3), (3,4),
   (4,1), (4,3), (4,4),
