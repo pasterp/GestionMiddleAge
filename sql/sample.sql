@@ -40,11 +40,11 @@ INSERT INTO TYPE(idType, nomType) VALUES
   (1, 'Production'),
   (2, 'Entrainement');
 
-INSERT INTO BATIMENT(idBatiment, nomBatiment, descriptionBatiment, niveauBatiment, idType) VALUES
-  (1, "Ferme basique", "", 1, 1),
-  (2, "Grande Ferme", "", 2, 1),
-  (3, "Mine", "", 1, 1),
-  (4, "Chalet", "", 1, 1);
+INSERT INTO BATIMENT(idBatiment, nomBatiment, descriptionBatiment, niveauBatiment, idType, image) VALUES
+  (1, "Ferme basique", "", 1, 1, './img/batiment.png'),
+  (2, "Grande Ferme", "", 2, 1, './img/batiment.png'),
+  (3, "Mine", "", 1, 1, './img/batiment.png'),
+  (4, "Chalet", "", 1, 1, './img/batiment.png');
 
 INSERT INTO PRODUIT_RESSOURCE(idBatiment, idRessource, quantite) VALUES
   (1, 1, 50),
