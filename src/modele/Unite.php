@@ -1,5 +1,5 @@
 <?php
-	
+
 	/*
 	Toute les partie en commentaire sont des ajouts à vérifiés
 	*/
@@ -13,7 +13,7 @@
 	class Unite{
 
 		private $idUnite, $nomUnite, $image, $descriptionUnite;
-		
+
 		function __construct()
 		{
 			$ctp = func_num_args();
@@ -25,7 +25,7 @@
 	    			$this->hydrate($this->Unite($args[0]));
 	    		}
 	    	}
-			
+
 		}
 
 		public function hydrate(array $donnees)
@@ -44,7 +44,7 @@
 		$req = 'SELECT * FROM UNITE';
 		global $bdd;
 		$req = $bdd->query($req);
-        $req = $req->fetchAll();
+    $req = $req->fetchAll();
 
 		$liste = array();
 		foreach ($req as $row) {
@@ -63,8 +63,6 @@
 		}
 
 		// Liens de tables
-
-		/*-------------------------------------------------
 
 		public function genRessourcesLink(){
 			global $bdd;
@@ -101,7 +99,6 @@
 
 			return $req;
 		}
-		----------------------------------------------------*/
 
 		// getters
 
@@ -133,11 +130,11 @@
 		public function setPuissanceUnite($i){
 			$this->puissanceUnite = (int) $i;
 		}
-		
+
 		public function setNomUnite($n){
 			$this->nomUnite = strtolower($n);
 		}
-		
+
 		public function setImage($p){
 			$this->image = $p;
 		}

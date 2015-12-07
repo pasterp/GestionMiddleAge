@@ -154,6 +154,12 @@ class Joueur
         return $req;
     }
 
+    public function genTechLink($idTech){
+    	global $bdd;
+    	$req = "INSERT INTO CONNAIT(idJoueur, idTech) VALUES ('".$this->idJoueur."','".$idTech."')";
+    	$req = $bdd->exec($req)
+    }
+
 		public function updateRessourceLink($idRessource, $quantite){
 			global $bdd;
 			$req = "UPDATE POSSEDE_RESSOURCE SET quantite='".$quantite."' WHERE idRessource='".$idRessource."' AND idJoueur='".$this->idJoueur."'";
@@ -180,6 +186,26 @@ class Joueur
 			foreach ($ressources as $res) {
 				$this->updateRessourceLink($res[1]->getIdRessource(), $res[0]);
 			}
+		}
+
+		public function getProd(){
+			//On doit mettre à jour le nombre de ressource selon la prodiction des Batiments.
+			$ressources = $this->getRessourcesLink();
+			$batiments = $this->getBatimentLink();
+			foreach ($batiments as $bat) {
+					$batiment = new Batiment($bat['idBatiment']);
+					if ($batiment->getIdType() == 1) {
+							$ress = $batiment->getProdRessourceLink();
+							foreach ($ress as $res) {
+									for($i=0; $i < count($ressources); $i++) {
+										if($ressources[$i][1]->getIdRessource() == $res['idRessource']){
+												$ressources[$i][0]= $ressources[$i][0] + $res['quantite'];
+											}
+										}
+							}
+					}
+			}
+			return $ressources;
 		}
 
 	// getters

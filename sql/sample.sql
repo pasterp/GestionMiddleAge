@@ -22,14 +22,14 @@ INSERT INTO TECH_DEPEND_DE(techUpgrade, techRequis) VALUES
   (6,3),
   (6,5); -- SELECT (nomTech) FROM TECHNOLOGIE t LEFT JOIN TECH_DEPEND_DE ON t.idTech=TECH_DEPEND_DE.techRequis WHERE TECH_DEPEND_DE.techUpgrade = 6;
 
-INSERT INTO UNITE(idUnite, nomUnite, puissanceUnite) VALUES
-  (1, 'Paysan', 1),
-  (2, 'Archer', 15),
-  (3, 'Chevalier', 100),
-  (4, 'Arquebusier', 150),
-  (5, 'Catapulte', 200),
-  (6, 'Canon', 500),
-  (42, 'Chevalier Jedi', 999999999999999999);
+INSERT INTO UNITE(idUnite, nomUnite, puissanceUnite, image) VALUES
+  (1, 'Paysan', 1, './img/attaque.png'),
+  (2, 'Archer', 15, './img/attaque.png'),
+  (3, 'Chevalier', 100, './img/attaque.png'),
+  (4, 'Arquebusier', 150, './img/attaque.png'),
+  (5, 'Catapulte', 200, './img/attaque.png'),
+  (6, 'Canon', 500, './img/attaque.png'),
+  (42, 'Chevalier Jedi', 999999999999999999, './img/attaque.png');
 
 INSERT INTO UNITE_DEPEND_DE(idUnite, idTech) VALUES
   (2, 2),
@@ -40,11 +40,11 @@ INSERT INTO TYPE(idType, nomType) VALUES
   (1, 'Production'),
   (2, 'Entrainement');
 
-INSERT INTO BATIMENT(idBatiment, nomBatiment, descriptionBatiment, niveauBatiment, idType) VALUES
-  (1, "Ferme basique", "", 1, 1),
-  (2, "Grande Ferme", "", 2, 1),
-  (3, "Mine", "", 1, 1),
-  (4, "Chalet", "", 1, 1);
+INSERT INTO BATIMENT(idBatiment, nomBatiment, descriptionBatiment, niveauBatiment, idType, image) VALUES
+  (1, "Ferme basique", "", 1, 1, './img/batiment.png'),
+  (2, "Grande Ferme", "", 2, 1, './img/batiment.png'),
+  (3, "Mine", "", 1, 1, './img/batiment.png'),
+  (4, "Chalet", "", 1, 1, './img/batiment.png');
 
 INSERT INTO PRODUIT_RESSOURCE(idBatiment, idRessource, quantite) VALUES
   (1, 1, 50),
@@ -152,3 +152,15 @@ INSERT INTO CONNAIT(idJoueur, idTech) VALUES
   (3,1),
   (4,1),
   (5,1);
+
+INSERT INTO COUTE_TECH(idTech,idRessource,quantite) VALUES
+  (2,1,50),
+  (2,2,100),
+  (2,3,80),
+  (2,4,0),
+  (2,5,20),
+  (3,1,50),
+  (3,2,100),
+  (3,3,80),
+  (3,4,0),
+  (3,5,20);
