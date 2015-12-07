@@ -3,15 +3,6 @@
 include_once('./modele/joueur.php');
 include_once('./modele/connexion_sql.php');
 
-<<<<<<< HEAD
-=======
-/**
- * Created by PhpStorm.
- * User: pascal
- * Date: 06/12/15
- * Time: 16:44
- */
->>>>>>> a876ec07832338aee38c33981e6854ab1b76477f
 // $diff=0;
 // if(file_exists ('./updated.db')){
 //   $t = file('./updated.db')[0];
@@ -82,8 +73,5 @@ if($req['data'] != 0){
   $warn = "Initialisation du timer...";
   $req2 = "UPDATE ENGINE_DB SET data='".(time()-$diff)."'";
   $bdd->exec($req2);
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> a876ec07832338aee38c33981e6854ab1b76477f
