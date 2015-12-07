@@ -46,8 +46,10 @@ Le projet est accessible en ligne à l'adresse :  \url{http://www.github.com/pas
 \subsection{Modèle-Vue-Contrôleur}
 Pour concevoir notre projet, nous avons souhaité nous orienter vers une organisation de notre code en MVC ( Modèle-Vue-Contrôleur) avec du PHP orienté objet. Ce système nous a permis de bien structurer notre code. Nous avons donc créer 3 répertoires permettant de rangés les fichiers modèles, vues et controleurs de chacune des tables principales. En ce qui concerne les tables de jonctions quand à elle ne sont présentes uniquement dans des fonctions introduites dans les modèles des autres tables.
 \subsection{Base de Données}
-(Voir Annexes Page I)
-La base de données contient les joueurs, les cases de la carte, 
+(Voir Annexes Page I) \\
+La base de données contient les joueurs, les cases de la carte, les différents bâtiments, les ressources et les unités.  \\
+Tous les liens entres ces différentes entités sont dans des tables de jointures.\\
+Une table est également utilisé pour la gestion du temps.
 
 \newpage\section{Gestion des tours}
 Pour gérer les actions des joueurs, on a besoin de la notion du temps. Il faut donc que notre site opère certaines opérations au fil du temps. \\
@@ -62,21 +64,29 @@ L'inconvénient est qu'il est nécessaire d'inclure un fichier supplémentaire e
 La tâche Cron est un système au niveau système qui permet de lancer un script à des dates et heures précises. Néanmoins Cette fonctionnalité demande des droits spécifiques au système et ne peut donc être mise en oeuvre à l'IUT. Cette méthode aurait perdu de faire un appel minimum aux fonctions (juste aux horaires désirés);
 \subsection{Mise en œuvre}
 La solution retenue est hybride : elle est codée en PHP mais est appelée par l'utilisateur. \\
-Chaque page chargée entraine une vérification de l'heure du dernier cycle, PHP compare ensuite si ce cycle est assez ancien pour faire un nouveau cycle (900 secondes dans notre code) et si c'est le cas il lance les fonctions de génération de ressources.
+Chaque page chargée entraîne une vérification de l'heure du dernier cycle(via mySQL), PHP compare ensuite si ce cycle est assez ancien pour faire un nouveau cycle (900 secondes dans notre code) et si c'est le cas il lance les fonctions de génération de ressources.
 
 \newpage\section{Possibilités d'améliorations}
-
+De nombreuses fonctionnalités de ce genre de jeu n'ont pas été implémenté et sont des possibles voies d'amélioration :\\
+\begin{itemize}
+\item Carte plus avancée
+\item Construction de bâtiments / Entraînement d'unités
+\item Gestion des combats entre utilisateurs
+\item Classement des joueurs
+\end{itemize}
 \newpage\section{Conclusion}
 \subsection{Avis personnels}
 \subsubsection{Noro Geoffrey}
 Lors de ce projet nous avons beaucoup travailler en équipe malgré une gestion assez mauvaise du projet qu'il faudra certainement que l'on revoit pour nos prochain projet en commun, mais l'utilisation de github nous à facilité sa réalisation car cela nous permetait de toujours avoir une version à jour du projet et de pouvoir mettre en commun chacune de nos avancés lors de nos travaux individuel. Je penses que la chose la plus importante à revoir est donc notre gestion du temps.
 \subsubsection{Phélipot Pascal}
-
+Ce projet était peut être un peu trop ambitieux pour la durée qui nous a été donné. On a du faire preuve de beaucoup d'organisation face à sa complexité. Le manque de temps et la charge de travail des autres matières aura retardé ce projet malheureusement. Nous avons pu expérimenter le modèle MVC en PHP, bien que nous ne soyons pas sûr si notre méthode a été la bonne cela a permit une meilleure organisation.
 \subsubsection{Ralijaona Tiona}
 Un bon projet en perspective et de belle promesse sur papier cependant notre manque de gestion de temps et d'organisation nous a pas permis de finaliser le projet dans les temps. En effet, je reste sur ma faim et me dis que j'aurais pu aboutir le projet. Après je retiens beaucoup de positif, car j'ai pu découvrir la programmation orientée objet en PHP et travailler sur le modèle MVC ( Modèle Contrôleur Vue) afin d'avoir une meilleur organisation dans les fichiers. 
 \subsubsection{Rimoux Quentin}
 Ce projet m'a permis de mieux cerner les difficultés de gestion et de réalisation que l'on peut rencontrer en groupe. De plus, il m'a fait réaliser qu'avoir de l'ambition peut parfois être une mauvaise chose. En revanche, ce projet m'a permis de mieux appréhender l'implémentation d'une base de données avec un site Web et m'a fait découvrir la programmation orienté objet en PHP ainsi que l'utilisation du modèle MVC en Web.
 \subsection{Avis Global}
+Le temps a manqué pour ce projet vis à vis de nos ambitions. Nous avons néanmoins réussi à fournir de nombreuses fonctionnalités comme nous le voulions: gestion des utilisateurs, gestion du temps et des ressources.\\
+Nous avons également appris à mieux nous organiser et le prochain projet devrait être plus simple à mettre en place.
 
 \newpage\pagenumbering{Roman}
 \section{Annexes}
@@ -85,7 +95,7 @@ Ce projet m'a permis de mieux cerner les difficultés de gestion et de réalisat
 \begin{figure}[!h]
 \includegraphics[scale=0.3]{./sql/last.png}
 \end{figure}
-\subsubsection{MySql final}
+\newpage\subsubsection{MySql final}
 \begin{figure}[!h]
 \includegraphics[scale=0.3]{./sql/final.png}
 \end{figure}
