@@ -8,7 +8,7 @@ INSERT INTO RESSOURCE(idRessource, nomRessource, descriptionRessource, image) VA
 
 
 INSERT INTO TECHNOLOGIE(idTech, nomTech, descriptionTech, image) VALUES
-  (1, 'Travail du bois', 'Après avoir vainement tester de le manger, le bois c\'est avéré un parfait matériau de construction pour des batiments comme pour des armes', './img/science.png'),
+  (1, 'Travail du bois', 'Après avoir vainement tester de le manger, le bois s\'est avéré un parfait matériau de construction pour des batiments comme pour des armes', './img/science.png'),
   (2, 'Tir à l\'arc', 'Les essais infructueux de lancer des pierres à la main ne vous découragèrent pas dans la fabrication d\'une arme plus évoluée', './img/science.png'),
   (3, 'Travail du métal', 'Vous avez réussi à rendre vos fours suffisament chaud pour rendre le fer maléable, à vous les outils et amres plus solides et efficaces !', './img/science.png'),
   (4, 'Armures', 'Portez cette armure de 200kg protège de tout, même des ISM car vous ne pouvez guère prendre soin d\'une dame en l\'écrasant ainsi (cf le commité des Femmes Ecrasées par leur Maris En arMure', './img/science.png'),

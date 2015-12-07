@@ -12,11 +12,11 @@ class EstInstalle{
 		$this->idCase = $idC;
 	}
 
-	public function setIdJoueur(int $idJ){
+	public function setIdJoueur($idJ){
 		$this->idJoueur = $idJ;
 	}
 
-	public function setIdCase(int $idC){
+	public function setIdCase($idC){
 		$this->idcase = $idC;
 	}
 
@@ -36,5 +36,18 @@ class EstInstalle{
 		if (method_exists($this, $method)){
 			$this->$method($value);
 		}
+	}
+
+	public static function EstInstalle(){
+		$req = 'SELECT * FROM EST_INSTALLE';
+		global $bdd;
+		$req = $bdd->query($req);
+		$list = $req->fetchAll();
+		foreach($req as $row){
+			$ei = new EST_INSTALLE(0, 0);
+			$ei->hydrate($row);
+			array_push($list, $ei);
+		}
+		return $list;
 	}
 }
