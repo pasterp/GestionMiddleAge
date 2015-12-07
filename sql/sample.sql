@@ -22,14 +22,14 @@ INSERT INTO TECH_DEPEND_DE(techUpgrade, techRequis) VALUES
   (6,3),
   (6,5); -- SELECT (nomTech) FROM TECHNOLOGIE t LEFT JOIN TECH_DEPEND_DE ON t.idTech=TECH_DEPEND_DE.techRequis WHERE TECH_DEPEND_DE.techUpgrade = 6;
 
-INSERT INTO UNITE(idUnite, nomUnite, puissanceUnite, image) VALUES
-  (1, 'Paysan', 1, './img/attaque.png'),
-  (2, 'Archer', 15, './img/attaque.png'),
-  (3, 'Chevalier', 100, './img/attaque.png'),
-  (4, 'Arquebusier', 150, './img/attaque.png'),
-  (5, 'Catapulte', 200, './img/attaque.png'),
-  (6, 'Canon', 500, './img/attaque.png'),
-  (42, 'Chevalier Jedi', 999999999999999999, './img/jedi.png');
+INSERT INTO UNITE(idUnite, nomUnite, puissanceUnite, descriptionUnite, image) VALUES
+  (1, 'Paysan', 1, "Faute de moyen il faut bien que vous puissiez former une armée même si des fourches sont peu utile contre de véritables armes" ,'./img/attaque.png'),
+  (2, 'Archer', 15, "Une flêche un mort tel est la devise de l'archée du moins quand il ne louche pas", './img/attaque.png'),
+  (3, 'Chevalier', 100, "Les chevaliers sont puissant et ont le sens du devoir, mais faites attention à ce qu'il n'y ai pas de noble juvencelle en détresse prêt du champs de battaille il pourrait bien déserté pour la secourir...", './img/attaque.png'),
+  (4, 'Arquebusier', 150, "Et oui des Arquebusiers, précision est leur maître mot. Mais ils aiment aussi festoyer avec un bon vin et cela crée souvent des accidents !", './img/attaque.png'),
+  (5, 'Catapulte', 200, "La catapulte est une extraordinaire invention pour détruire des batiment en projetant des pierres, du bois, des vaches, des moutons et parfois quelque paysans un peu malade ! Eh oui leur manque de puissance les transforme en munition idéale.", './img/attaque.png'),
+  (6, 'Canon', 500, "Le canon est certainement l'unité la plus puissante de ce jeu, du moins tant qu'aucun gueux de notre chateaux décide d'apprendre à voler !", './img/attaque.png'),
+  (42, 'Chevalier Jedi', 999999999999999999, " Pardon ceci est l'unité la plus puissante du jeu le personnage la représentant n'est nul autre qu'Alexandru Dobrila notre maître Jedi de la BDD !!!", './img/jedi.png');
 
 INSERT INTO UNITE_DEPEND_DE(idUnite, idTech) VALUES
   (2, 2),
