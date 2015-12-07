@@ -35,4 +35,4 @@
 </div>
 </div>
 <?php } } } } } */?>
-<?php include_once('/vue/footer.php'); ?>
+<?php include_once('./vue/footer.php'); ?>
